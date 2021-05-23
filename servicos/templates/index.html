@@ -1,0 +1,98 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div id="demo">
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-auto text-center">
+            <h1>Busque por um serviço:</h1>
+            <p>Encontre profissionais de diferenres setores.</p>
+        </div>
+    </div>
+    <div class="seach-content">
+        <form method="">
+            <div class="row align-items-center">
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-4">
+                    <input type="text" class="form-control rounded" placeholder="Nome do serviço?">
+                </div>
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                    <input type="text" class="form-control rounded" placeholder="Ciadade">
+                </div>
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                    <select class="form-control rounded" name="" id="">
+                        <option value='none'>-- Selecione uma categoria --</option>
+
+                        {% for categoria in categorias %}
+                            <option value='{{categoria.id}}'>{{categoria.nome}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-lg-12 col-xl-2 ml-auto">
+                    <input class="btn btn-block" type="submit" value="Buscar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="servicos" class="custom-bg p-5">
+    <div class="row">
+        <div class="custom-title">
+            <h2>Seviços</h2>
+            <span class="section-separator"></span>
+        </div>
+    </div>
+    <div class="row mt-5">
+        {% for servico in servicos %}
+            <div class="col-lg-3">
+                <div class="card shadow">
+                    <div class="capa">
+                        <img src="{{servico.capa.url}}" alt="{{servico.nome}}">
+                    </div>
+                    
+                    <div class="card-body">
+                        <h4 class="card-title">{{servico.nome}}</h4>
+                        <p class="card-text">Categoria: {{servico.categoria}}</p>
+                        <a href="{% url 'servico-view' servico.id %}" class="btn">Saiba mais<i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <h3>Não há serviços cadastrados...</h3>
+        {% endfor %}
+    </div>
+</div>
+    
+
+<div id="block-info" class="gradient p-5">
+    <div class="row text-dark align-items-center">
+        <div class="col-sm-12 col-md-4	col-lg-4 col-xl-4">
+            <div class="block-content">
+                <i class="fas fa-cogs"></i><span>Quantidade de Serviços: {{ servicos.count }}</span> 
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="block-content">
+                <i class="fas fa-users"></i> <span>Quantidade de usuarios: {{ qtd_user }}</span> 
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4	col-lg-4 col-xl-4">
+            <div class="block-content">
+                <a href="">
+                    <i class="fas fa-plus"></i><span>Adicionar Serviço</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <img class="border" src="{{servico.capa.url}}" alt="{{servico.name}}"> -->
+{% for photo in images %}
+    <p>{{photo}}</p>
+{% empty %}
+   
+    <h3>Não há imagens cadastrados...</h3>
+{% endfor %}
+
+{% endblock %}

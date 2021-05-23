@@ -1,0 +1,405 @@
+/* ----------------------- Geral ------------------------*/
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.row {
+    margin: 0px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+/* Btn  */
+
+.btn {
+    background: #4DB7FE;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px;
+
+}
+
+.btn:hover{
+    box-shadow: none;
+    color: #fff;
+    /* border: solid 3px #B2B2B2; */
+
+}
+/* color */
+.gradient {
+    color: #FFFFFF;
+    background: linear-gradient(to bottom right, #0E74A5, #52ad9c);
+}
+
+.custom-bg {
+    background-color: #dfdfdf;
+}
+
+
+a {
+    color: rgba(0, 0, 0, 0.695);
+}
+
+a:hover {
+    color: #4DB7FE;
+    text-decoration: none;
+}
+
+/*---------------------- tripografia ---------------------- */
+
+.custom-title h2 {
+    color: #566985;
+    font-weight: 700;
+    font-size: 34px;
+}
+
+.section-separator {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin: 0;
+
+}
+
+.section-separator:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 4px;
+    width: 50px;
+    border-radius: 3px;
+    background: #4db7fe;
+}
+/* ------------------------- navbar ---------------------- */
+
+.navbar {
+    background: #2F3B59 !important;
+}
+
+.btn-navbar{
+    width: 150px;
+    margin: 0px 50px 0px 50px;
+}
+
+/* navbar icon */
+
+#navbarNav ul li a i{
+    margin-right: 5px;
+} 
+
+#navbarNav ul li .fa-plus {
+    margin-left: 5px;
+    
+}
+
+#logo {
+    margin-left: 50px;
+    
+}
+
+#logo img {
+    max-width: 200px;
+}
+
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    font-size: 13px;
+    color: #fff !important;
+    font-weight: 800;
+    
+}
+.nav-link:hover {
+    color: #fff !important;
+}
+
+@media screen and (max-width:750px){
+
+    .btn-navbar{
+        width: 120px;
+        margin: 5px 10px 0px 10px;
+    }
+
+
+    #logo {
+        margin-left: 20px;
+        
+    }
+
+    #logo img {
+        max-width: 180px
+    }
+    
+
+}
+
+/* ---------------------------- Home demo -------------------*/
+
+#demo {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/layouts/hero-bg.jpg") center center;
+    background-size: cover;
+    position: relative;
+   
+}
+
+#demo {
+    padding-top: 14em;
+}
+
+
+#demo h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+
+
+}
+
+#demo p {
+    color: #fff;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+#demo .seach-content {
+    padding: 20px;
+    margin: 0px 50px;
+    background: rgba(196, 196, 196, 0.45);
+    border-radius: 5px;
+
+}
+
+@media screen and (max-width:750px){
+   
+    #demo h1 {
+        font-size: 35px;
+    
+    }
+    
+    #demo p {
+        font-size: 18px;
+        margin-top: 10px;
+        font-weight: 900;
+    }
+
+    
+}
+
+/* ----------------------------- Home-cards -------------- */
+
+#servicos .card .capa{
+    height: 180px;
+    width: 100%
+}
+
+#servicos .card .capa img{
+    width: 100%;
+    height: 100%;
+  
+}
+#servicos .card, .capa img {
+    border-radius: 8px 8px 0px 0px;
+}
+
+#servicos .card a {
+    float: right;
+    font-size: 13px;
+    
+}
+
+
+
+#servicos .card a i{
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+
+
+
+
+/* ---------------------info-block -----------=--------------------- */
+
+#block-info span {
+    font-weight: 800;
+}
+
+#block-info .block-content{
+    background: #fff;
+    padding-top: 35px;
+    height: 100px;
+    border-radius: 5px;
+
+}
+
+
+#block-info div span {
+    position: absolute;
+    left: 115px;
+}
+
+#block-info .fas {
+    background: #fff;
+}
+
+#block-info .block-content i{
+    color: #4FB5F5;
+    position: absolute;
+    top: 20px;
+    width: 60px;
+    left: 35px;
+    height: 60px;
+    line-height: 58px;
+    font-size: 22px;
+    text-align: center;
+    border: 1px solid  rgba(0,0,0,.1);
+    border-radius: 50%;
+}
+
+/* ------------------------------ formulario ------------------- */
+.form-control:focus {
+    border-color: #4DB7FE;;
+    box-shadow: none;
+   
+}
+
+
+
+/*---------------- Back to Top ----------------------*/
+
+#backtotop{
+    color:#FFFFFF; 
+    background-color: #4DB7FE;
+}
+
+#backtotop {
+    z-index:999; 
+    display:inline-block; 
+    position:fixed; 
+    visibility:hidden; 
+    bottom:20px; 
+    right:20px; 
+    width:36px; 
+    height:36px; 
+    line-height:36px; 
+    font-size:16px; 
+    text-align:center; 
+    opacity:.2;
+}
+
+#backtotop i{
+    display:block; 
+    width:100%; 
+    height:100%; 
+    line-height:inherit;
+}
+#backtotop.visible{
+    visibility:visible; 
+    opacity:.5;
+}
+
+#backtotop:hover{
+    opacity:1;
+} 
+
+/* ---------------------------- carrousel servico View --------------------- */
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%
+}
+
+#custCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px
+}
+
+#custCarousel .carousel-indicators>li {
+    width: 100px
+}
+
+#custCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5
+}
+
+#custCarousel .carousel-indicators li.active img {
+    opacity: 1
+}
+
+#custCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
+}
+
+.carousel-item img {
+    width: 80%
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid  rgba(0,0,0,.1);
+  background-image: none;
+  background: #fff;
+}
+
+.carousel-control-next-icon:after{
+  content: '>';
+  font-size: 30px;
+  font-weight: bold;
+  color: #4DB7FE;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 30px;
+  font-weight: bold;
+  color: #4DB7FE;
+}
+
+/* ---------------------------- footer ---------------------------- */
+
+footer {
+    background: #2F3B59;
+ 
+}
+
+footer img {
+    float: left;
+    margin-top: 30px;
+    max-width: 130px;
+    
+}
+
+footer p {
+    margin-top: 30px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.61);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+footer #termo a {
+    /* margin-top: 30px; */
+    color: #FFFFFF;
+    float: right;
+    padding: 30px 55px 10px 10px;
+}
+
+footer #termo a:hover {
+    color: #4DB7FE;
+}
+
