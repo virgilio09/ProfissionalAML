@@ -14,15 +14,20 @@
     <div class="seach-content">
         <form method="">
             <div class="row align-items-center">
-                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-4">
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                     <input type="text" class="form-control rounded" placeholder="Nome do serviço?">
                 </div>
+
                 <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                    <input type="text" class="form-control rounded" placeholder="Estado">
+                </div>
+
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-2">
                     <input type="text" class="form-control rounded" placeholder="Ciadade">
                 </div>
-                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-2">
                     <select class="form-control rounded" name="" id="">
-                        <option value='none'>-- Selecione uma categoria --</option>
+                        <option value='none'> Categoria </option>
 
                         {% for categoria in categorias %}
                             <option value='{{categoria.id}}'>{{categoria.nome}}</option>
@@ -37,21 +42,20 @@
     </div>
 </div>
 
-<div id="servicos" class="custom-bg p-5">
+<div id="servicos" class="p-5">
     <div class="row">
-        <div class="custom-title">
-            <h2>Seviços</h2>
-            <span class="section-separator"></span>
+        <div class="col">
+            <div class="custom-title">
+                <h2>Seviços</h2>
+                <span class="section-separator"></span>
+            </div>
         </div>
     </div>
     <div class="row mt-5">
         {% for servico in servicos %}
             <div class="col-lg-3">
                 <div class="card shadow">
-                    <div class="capa">
-                        <img src="{{servico.capa.url}}" alt="{{servico.nome}}">
-                    </div>
-                    
+                    <div class="capa" style='background-image: url("{{servico.capa.url}}")'></div>
                     <div class="card-body">
                         <h4 class="card-title">{{servico.nome}}</h4>
                         <p class="card-text">Categoria: {{servico.categoria}}</p>
@@ -65,10 +69,9 @@
     </div>
 </div>
     
-
 <div id="block-info" class="gradient p-5">
     <div class="row text-dark align-items-center">
-        <div class="col-sm-12 col-md-4	col-lg-4 col-xl-4">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
             <div class="block-content">
                 <i class="fas fa-cogs"></i><span>Quantidade de Serviços: {{ servicos.count }}</span> 
             </div>
@@ -87,12 +90,4 @@
         </div>
     </div>
 </div>
-<!-- <img class="border" src="{{servico.capa.url}}" alt="{{servico.name}}"> -->
-{% for photo in images %}
-    <p>{{photo}}</p>
-{% empty %}
-   
-    <h3>Não há imagens cadastrados...</h3>
-{% endfor %}
-
 {% endblock %}

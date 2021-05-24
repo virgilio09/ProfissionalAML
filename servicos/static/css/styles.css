@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
+    background-color: #dfdfdf;
 }
 
 .row {
@@ -32,10 +33,6 @@ body {
 .gradient {
     color: #FFFFFF;
     background: linear-gradient(to bottom right, #0E74A5, #52ad9c);
-}
-
-.custom-bg {
-    background-color: #dfdfdf;
 }
 
 
@@ -198,15 +195,13 @@ a:hover {
 
 #servicos .card .capa{
     height: 180px;
-    width: 100%
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    
 }
 
-#servicos .card .capa img{
-    width: 100%;
-    height: 100%;
-  
-}
-#servicos .card, .capa img {
+#servicos .card, .capa {
     border-radius: 8px 8px 0px 0px;
 }
 
@@ -216,15 +211,10 @@ a:hover {
     
 }
 
-
-
 #servicos .card a i{
     font-size: 10px;
     margin-left: 5px;
 }
-
-
-
 
 
 /* ---------------------info-block -----------=--------------------- */
@@ -320,7 +310,7 @@ a:hover {
 
 #custCarousel .carousel-indicators {
     position: static;
-    margin-top: 20px
+    margin-top: 10px
 }
 
 #custCarousel .carousel-indicators>li {
@@ -341,33 +331,33 @@ a:hover {
 }
 
 .carousel-item img {
-    width: 80%
+    width: 100%
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 50px;
-  width: 50px;
-  outline: black;
-  background-size: 100%, 100%;
-  border-radius: 50%;
-  border: 1px solid  rgba(0,0,0,.1);
-  background-image: none;
-  background: #fff;
+    height: 50px;
+    width: 50px;
+    outline: black;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    border: 1px solid  rgba(0,0,0,.1);
+    background-image: none;
+    background: #fff;
 }
 
 .carousel-control-next-icon:after{
-  content: '>';
-  font-size: 30px;
-  font-weight: bold;
-  color: #4DB7FE;
+    content: '>';
+    font-size: 30px;
+    font-weight: bold;
+    color: #4DB7FE;
 }
 
 .carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 30px;
-  font-weight: bold;
-  color: #4DB7FE;
+    content: '<';
+    font-size: 30px;
+    font-weight: bold;
+    color: #4DB7FE;
 }
 
 /* ---------------------------- footer ---------------------------- */

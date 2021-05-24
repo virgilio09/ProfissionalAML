@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class Endereco(models.Model):
+    cep = models.CharField(max_length=8, null=False, blank=False)
     rua = models.CharField(max_length=200, null=False, blank=False)
     numero = models.IntegerField(null=False, blank=False)
     complemento = models.CharField(max_length=200, null=False, blank=False)
@@ -30,8 +31,6 @@ class Servico(models.Model):
     descricao = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
 
     def __str__(self):
         return self.nome
