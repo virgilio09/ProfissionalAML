@@ -310,7 +310,7 @@ a:hover {
 
 #custCarousel .carousel-indicators {
     position: static;
-    margin-top: 10px
+    margin: 10px
 }
 
 #custCarousel .carousel-indicators>li {
@@ -360,6 +360,17 @@ a:hover {
     color: #4DB7FE;
 }
 
+
+/*  ------------------ detalhes serviços -------------- */
+.content-descricao {
+    margin-top: 5rem;
+}
+.content-descricao h4 {
+    font-weight: 700;
+}
+ .content-descricao p {
+     text-align: justify;
+ }
 /* ---------------------------- footer ---------------------------- */
 
 footer {
