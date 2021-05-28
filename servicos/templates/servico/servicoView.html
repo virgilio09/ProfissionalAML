@@ -86,5 +86,28 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12">
+            <div class="comment-title">
+                {% if qtd_comments > 0 %}
+                    <h5>{{ qtd_commets }} cometários</h5>
+                {% else %}
+                    <h5>Não há comentários</h5>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12">
+            <form action="">
+                {% csrf_token %}
+                {{ commentForm }}
+            </form>
+        </div>
+    </div>
 </div>
+
+{% for photo in images %}
+    <p>{{photo.url}}</p>
+{% endfor %}
 {% endblock %}
