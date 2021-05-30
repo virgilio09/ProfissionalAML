@@ -53,9 +53,11 @@
     </div>
     <div class="row mt-5">
         {% for servico in servicos %}
-            <div class="col-lg-3">
+            <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="card shadow">
-                    <div class="capa" style='background-image: url("{{servico.capa.url}}")'></div>
+                    <div class="capa">
+                        <img class="img-fluid" src="{{servico.capa.url}}" alt="{{servico.nome}}">
+                    </div>
                     <div class="card-body">
                         <h4 class="card-title">{{servico.nome}}</h4>
                         <p class="card-text">Categoria: {{servico.categoria}}</p>
@@ -72,7 +74,7 @@
 <div id="block-info" class="gradient p-5">
     <div class="row text-dark align-items-center">
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <div class="block-content">
+            <div class="block-content rounded-top">
                 <i class="fas fa-cogs"></i><span>Quantidade de Serviços: {{ servicos.count }}</span> 
             </div>
         </div>
@@ -81,8 +83,8 @@
                 <i class="fas fa-users"></i> <span>Quantidade de usuarios: {{ qtd_user }}</span> 
             </div>
         </div>
-        <div class="col-sm-12 col-md-4	col-lg-4 col-xl-4">
-            <div class="block-content">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="block-content rounded-bottom">
                 <a href="">
                     <i class="fas fa-plus"></i><span>Adicionar Serviço</span>
                 </a>

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: #dfdfdf;
+    /* background-color: #dfdfdf; */
 }
 
 .row {
@@ -193,15 +193,8 @@ a:hover {
 
 /* ----------------------------- Home-cards -------------- */
 
-#servicos .card .capa{
-    height: 180px;
-    width: 100%;
-    background-size: cover;
-    position: relative;
-    
-}
 
-#servicos .card, .capa {
+#servicos .card, .capa, img {
     border-radius: 8px 8px 0px 0px;
 }
 
@@ -253,6 +246,13 @@ a:hover {
     text-align: center;
     border: 1px solid  rgba(0,0,0,.1);
     border-radius: 50%;
+}
+
+@media (max-width: 768px){
+    #block-info .block-content {
+        border-radius: 0px;
+        font-size: 14px;
+    }
 }
 
 /* ------------------------------ formulario ------------------- */
@@ -362,6 +362,13 @@ a:hover {
 
 
 /*  ------------------ detalhes serviços -------------- */
+.custom-title p span {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    margin-left: 5px;   
+}
 .content-descricao {
     margin-top: 5rem;
 }
@@ -371,6 +378,59 @@ a:hover {
  .content-descricao p {
      text-align: justify;
  }
+
+ /* --------------------- area comments ---------------- */
+ .sidebar-heading h4 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #20232e;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.content-comments {
+    margin-top: 30px;
+}
+
+.content-comments ul li {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.content-comments ul li.replied {
+    padding-left: 50px;
+}
+
+.content-comments ul li:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
+.content-comments ul li .right-content {
+    margin-left: 50px;
+}
+
+.content-comments ul li .right-content h4 {
+    color: #20232e;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.content-comments ul li .right-content h4 span {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    margin-left: 20px;
+}
+
 /* ---------------------------- footer ---------------------------- */
 
 footer {
@@ -379,14 +439,13 @@ footer {
 }
 
 footer img {
-    float: left;
-    margin-top: 30px;
-    max-width: 130px;
+    text-align: center;
+    max-width: 140px;
     
 }
 
 footer p {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     color: rgba(255, 255, 255, 0.61);
     font-size: 14px;
@@ -394,13 +453,20 @@ footer p {
 }
 
 footer #termo a {
-    /* margin-top: 30px; */
     color: #FFFFFF;
-    float: right;
-    padding: 30px 55px 10px 10px;
 }
 
 footer #termo a:hover {
     color: #4DB7FE;
 }
 
+
+ /* @media (max-width: 575.98px){
+    footer img {
+        text-align: center;
+    }
+    footer #termo a {
+         color: red;
+        text-align: center; 
+    }
+} */

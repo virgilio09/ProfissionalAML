@@ -1,4 +1,5 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
 
 {% block title %}{{servico.nome}}{% endblock %}
 
@@ -9,7 +10,7 @@
             <div class="custom-title mt-5">
                 <h2>{{servico.nome}}</h1>
                 <span class="section-separator mb-2"></span>
-                <p>Publicado em: {{servico.created_at|date:"d/M/Y"}} ás {{servico.created_at|date:"H: i"}}</p>
+                <p>Publicado em:<span>{{servico.created_at|date:"d/M/Y"}} ás {{servico.created_at|date:"H: i"}}</span></p>
             </div>
         </div>
     </div>
@@ -71,7 +72,7 @@
                     {% if servico.endereco.complemento %}
                         <li>Complemento:<span>{{servico.endereco.complemento}}</span></li> 
                     {% endif %}
-                    <li>Bairro:<span>{{servico.endereco.barro}}</span></li>
+                    <li>Bairro:<span>{{servico.endereco.bairro}}</span></li>
                     <li>Estado:<span>{{servico.endereco.estado}}</span></li>
                     <li>Ciadade:<span>{{servico.endereco.cidade}}</span></li>
                 </ul>
@@ -86,28 +87,42 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-12 col-sm-12">
-            <div class="comment-title">
-                {% if qtd_comments > 0 %}
-                    <h5>{{ qtd_commets }} cometários</h5>
-                {% else %}
-                    <h5>Não há comentários</h5>
-                {% endif %}
+    <div class="content-comments">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="sidebar-heading">
+                    {% if qtd_comments > 0 %}
+                        <h4>{{ qtd_comments }} cometários</h4>
+                    {% else %}
+                        <h4>Não há comentários</h4>
+                    {% endif %}
+                </div>
+    
+                {% for item in comments %}
+                    <ul>
+                        <li>
+                            <div class="right-content">
+                                <h4>{{item.nome}}<span>{{item.created_at|date:"d/m/Y"}} ás {{item.created_at|date:"H:i"}}</span></h4>
+                                <p> {{item.comment}} </p>
+                            </div>
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="sidebar-heading">
+                    <h4>deixe seu comentário</h4>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ commentForm }}
+                    <button type="submit" class="btn mt-3 float-right">Enviar</button>
+                </form>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-12 col-sm-12">
-            <form action="">
-                {% csrf_token %}
-                {{ commentForm }}
-            </form>
-        </div>
-    </div>
 </div>
-
-{% for photo in images %}
-    <p>{{photo.url}}</p>
-{% endfor %}
+    
 {% endblock %}

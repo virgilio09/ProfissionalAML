@@ -16,6 +16,6 @@ class CommentForm(forms.ModelForm):
             'comment': forms.Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Adicione um comentário...',
-                'rows': '3'
+                'rows': '4'
             })
         }
