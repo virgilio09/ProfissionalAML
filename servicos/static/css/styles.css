@@ -246,7 +246,8 @@ a:hover {
     text-align: center;
     border: 1px solid  rgba(0,0,0,.1);
     border-radius: 50%;
-}
+
+}   
 
 @media (max-width: 768px){
     #block-info .block-content {
@@ -429,6 +430,91 @@ a:hover {
     font-weight: 400;
     letter-spacing: 0.25px;
     margin-left: 20px;
+}
+
+/* -------------------------- about-------------------------------- */
+h2 {
+    font-weight: lighter
+}
+
+.about {
+    text-align: center;
+    color: gray;
+    padding: 40px
+}
+
+.title {
+    font-size: 22px;
+    color: #2c2c2c
+}
+
+.desc {
+    color: #909090;
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 1.45em;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    width: 70%;
+    margin: 0 auto
+}
+
+@media (max-width: 630px) {
+    .title {
+        font-size: 18px
+    }
+}
+
+.about-content .card {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 14px 10px 12px 10px;
+    border-radius: 5px;
+}
+
+.card_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 9px 30px -6px rgba(15, 136, 206, 0.342);
+    position: relative;
+    transition: transform .4s
+}
+
+.about-content .fas, .fab {
+    display: inline-block;
+    position: absolute;
+    color: #4FB5F5;
+    transform: translate(-52%, 75%);
+    font-size: 40px
+}
+
+.card_title {
+    font-size: 20px;
+    margin: 12px;
+    font-weight: bold;
+    color: #000000a8;
+    transition: color .2s
+}
+
+.card:hover .card_title {
+    color: #4FB5F5;
+}
+
+.card:hover .card_img {
+    transform: translate(0px, -10px)
+}
+
+.card_body {
+    color: #8c9490;
+    font-size: 16px;
+    padding: 0 5px;
+    line-height: 1.5;
+    word-spacing: 4px
 }
 
 /* ---------------------------- footer ---------------------------- */

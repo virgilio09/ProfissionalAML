@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .models import Categoria, Servico, Imagem, Comment
@@ -9,12 +10,25 @@ def home(request):
     servicos = Servico.objects.all()
     qtd_user = User.objects.count()
     
-    context = { 'servicos': servicos,
-                'categorias': categorias,
-                'qtd_user': qtd_user
+    context = { 
+        'servicos': servicos,
+        'categorias': categorias,
+        'qtd_user': qtd_user
     }
     
     return render(request, 'index.html', context)
+
+def about(request):
+    qtd_servicos = Servico.objects.count()
+    qtd_user = User.objects.count()
+
+    context = {
+        'qtd_servicos': qtd_servicos,
+        'qtd_user': qtd_user,
+    }
+
+    return render(request, 'servico/about.html', context)
+
 
 def addServico(request):
 
