@@ -91,6 +91,9 @@ a:hover {
     margin-left: 5px;
     
 }
+#exit {
+    margin-right: 0px;
+}
 
 #logo {
     margin-left: 50px;
@@ -432,6 +435,21 @@ a:hover {
     margin-left: 20px;
 }
 
+/* -------------------------- login ------------------------------- */
+
+.auth-card {
+    margin: 10rem 0px 10rem 0px;
+}
+
+.auth-card h4 {
+    color: #566985;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.change-form-p {
+    margin-top: 10px;
+}
 /* -------------------------- about-------------------------------- */
 h2 {
     font-weight: lighter

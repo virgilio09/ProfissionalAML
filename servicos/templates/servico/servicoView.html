@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
+
+{% load crispy_forms_tags %}
 
 {% block title %}{{servico.nome}}{% endblock %}
 
@@ -117,8 +118,8 @@
                 </div>
                 <form method="POST">
                     {% csrf_token %}
-                    {{ commentForm }}
-                    <button type="submit" class="btn mt-3 float-right">Enviar</button>
+                    {{ commentForm | crispy }}
+                    <button type="submit" class="btn float-right">Enviar</button>
                 </form>
             </div>
         </div>

@@ -38,12 +38,22 @@
 							<li class="nav-item">
 								<a class="nav-link" href="{% url 'about' %}"><i class="fas fa-question-circle"></i>Sobre</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href=""><i class="fas fa-sign-in-alt"></i>Entrar</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Registrar</a>
-							</li>
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fas fa-cogs"></i>Meus serviços</a>
+                                </li>
+                                <li class="nav-item" id="exit">
+                                    <a class="nav-link" href="{% url 'logout' %}">Sair <i class="fas fa-sign-in-alt"></i></a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Entrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Registrar</a>
+                                </li>
+                            {% endif %}
+							
 							<li>
 								<a class="nav-link btn-navbar btn" href="{% url 'add-servico' %}" >Add serviço<i class="fas fa-plus"></i></a>
 							</li>
