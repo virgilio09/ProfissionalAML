@@ -435,7 +435,7 @@ a:hover {
     margin-left: 20px;
 }
 
-/* -------------------------- login ------------------------------- */
+/* -------------------------- login/register ------------------------------- */
 
 .auth-card {
     margin: 10rem 0px 10rem 0px;
@@ -449,6 +449,10 @@ a:hover {
 
 .change-form-p {
     margin-top: 10px;
+}
+.change-form-p a {
+    color: #1E90FF;
+    font-weight: 500;
 }
 /* -------------------------- about-------------------------------- */
 h2 {
