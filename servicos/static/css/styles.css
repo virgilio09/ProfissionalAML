@@ -455,47 +455,55 @@ a:hover {
     font-weight: 500;
 }
 /* -------------------------- about-------------------------------- */
-h2 {
-    font-weight: lighter
-}
 
 .about {
     text-align: center;
     color: gray;
     padding: 40px
 }
-
-.title {
-    font-size: 22px;
-    color: #2c2c2c
+.about .title {
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 
-.desc {
-    color: #909090;
-    font-weight: 300;
-    font-size: 1.1em;
-    line-height: 1.45em;
+.about .title h1{
+    color: #566985;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.about .desc {
     margin-bottom: 15px;
-    margin-top: 30px;
+    margin-top: 40px;
     width: 70%;
     margin: 0 auto
 }
+.about .desc p {
+    font-size: 1.1em;
+    color: #282228;
+    font-weight: 500;
+    line-height: 1.45em;
+   
+}
 
 @media (max-width: 630px) {
-    .title {
+    .title h1 {
         font-size: 18px
     }
 }
-
+.about-content {
+    margin-bottom: 8em;
+}
 .about-content .card {
     display: flex;
     text-align: center;
-    justify-content: center;
+    justify-content: center; 
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     margin: 10px;
+    width: 350px;
     padding: 14px 10px 12px 10px;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
 
 .card_img {
@@ -531,12 +539,11 @@ h2 {
     transform: translate(0px, -10px)
 }
 
-.card_body {
-    color: #8c9490;
-    font-size: 16px;
-    padding: 0 5px;
-    line-height: 1.5;
-    word-spacing: 4px
+.card_body p{
+    font-size: 1.1em;
+    color: #282228;
+    font-weight: 500;
+    line-height: 1.45em;
 }
 
 /* ---------------------------- footer ---------------------------- */

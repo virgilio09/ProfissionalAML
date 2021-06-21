@@ -1,5 +1,11 @@
 from django import forms
-from .models import Comment
+from django.contrib.auth import models
+from .models import Servico, Imagem, Endereco, Comment
+
+# class ServicoForm(forms. ModelForm):
+
+#     class Meta:
+#         model = 
 
 class CommentForm(forms.ModelForm):
 
