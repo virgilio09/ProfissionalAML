@@ -2,7 +2,7 @@ from django.http import request
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .models import Categoria, Servico, Imagem, Comment
-from .forms import CommentForm
+from .forms import CommentForm, ServicoForm, EndForm
 
 
 def home(request):
@@ -32,7 +32,41 @@ def about(request):
 
 def addServico(request):
 
-    return render(request, 'servico/addservico.html')
+    if request.method == 'POST': 
+        servicoForm = ServicoForm(request.POST)
+        endForm = EndForm(request.POST)   
+        images = request.FILES.getlist('images')
+
+        if servicoForm.is_valid() and endForm.is_valid():
+            servico = servicoForm.save(commit=False)
+            endereco = endForm.save(commit=False)
+            endereco.save()
+
+            servico.user = request.user
+            servico.endereco_id = endereco.id
+            servico.capa = images.pop(0)
+            servico.save()
+
+            # upload das images
+            if(images != []):
+                for image in images:
+                    photo = Imagem.objects.create(
+                        servico_id=servico.id,
+                        image=image,
+                    )
+    
+            return redirect('home')
+    else:
+        servicoForm = ServicoForm()
+        endForm = EndForm()
+
+        context = {
+            'servicoForm': servicoForm,
+            'endForm': endForm,
+        
+        }
+
+        return render(request, 'servico/addservico.html', context)
 
 
 def servicoView(request, id):

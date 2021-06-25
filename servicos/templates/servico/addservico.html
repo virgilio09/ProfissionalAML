@@ -1,11 +1,35 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %}Novo serviço{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block title %}add servico{% endblock %}
 
 {% block content %}
+<div class="add-servico">
+    <div class="row">
+        <div class="col">
+            <div class="custom-title">
+                <h2>Adicione um seviço</h2>
+                <span class="section-separator"></span>
+            </div>
+        </div>
+    </div>
 
-<form method='POST' action="" enctype="multipart/form-data">
-    {% csrf_token %}
-    <!-- formularios  -->
-</form>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="row">
+            {%  csrf_token %}
+            <div class="col-md-6">
+                {{ servicoForm|crispy }}
+                <div class="form-group">
+                    <label>Upload image</label>
+                    <input name="images" type="file" multiple class="form-control-file">
+                </div>
+            </div>
+            <div class="col-md-6">
+                {{ endForm|crispy }}
+            </div>
+        </div>
+        <button type="submit" name="" id="" class="btn btn-block">Adicionar</button>
+    </form>
+</div>
 {% endblock %}

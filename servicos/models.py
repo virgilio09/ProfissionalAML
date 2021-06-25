@@ -5,7 +5,7 @@ class Endereco(models.Model):
     cep = models.CharField(max_length=8, null=False, blank=False)
     rua = models.CharField(max_length=200, null=False, blank=False)
     numero = models.IntegerField(null=False, blank=False)
-    complemento = models.CharField(max_length=200, null=False, blank=False)
+    complemento = models.CharField(max_length=200, null=True, blank=True)
     bairro = models.CharField(max_length=50, null=False, blank=False)
     estado = models.CharField(max_length=50, null=False, blank=False)
     cidade = models.CharField(max_length=100, null=False, blank=False)
@@ -22,12 +22,12 @@ class Categoria(models.Model):
 class Servico(models.Model):
     nome = models.CharField(max_length=50)
     user = models.ForeignKey(User,  on_delete=models.CASCADE, null=False)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=False)
     capa =  models.ImageField(null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    nrTelCelular = models.CharField(max_length=11, blank=True, null=True, verbose_name='Nº telefone celular')
-    nrTelFixo = models.CharField(max_length=11, blank=True, null=True, verbose_name='Nº telefone fixo')
-    endereco = models.OneToOneField(Endereco, on_delete=models.SET_NULL, null=True)
+    telefone01 = models.CharField(max_length=11, blank=False, null=False, verbose_name='Telefone 1')
+    telefone02 = models.CharField(max_length=11, blank=True, null=True, verbose_name='Telefone 2 (Opcional)')
+    endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, null=False)
     descricao = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -38,7 +38,7 @@ class Servico(models.Model):
 
 class Imagem(models.Model):
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE)
-    image = models.ImageField(null=False, blank=False)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.servico.nome
