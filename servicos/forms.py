@@ -17,15 +17,28 @@ class ServicoForm(forms.ModelForm):
                 'placeholder': 'Descreva seu serviço...',
                 'rows': '3'
             }),
+            'telefone01': forms.TextInput(attrs={
+                'class':'sp_celphones'
+            }),
+            'telefone02': forms.TextInput(attrs={
+                'class':'sp_celphones'
+            }),
+            
         }
-
-
 
 class EndForm(forms.ModelForm):
 
     class Meta:
         model = Endereco
         fields = ['cep', 'rua', 'numero', 'complemento', 'bairro', 'estado', 'cidade']
+
+        widgets = {
+            'cep': forms.TextInput(attrs={'class': 'cep', 'id': 'cep'}),
+            'rua': forms.TextInput(attrs={'id': 'rua'}),
+            'bairro': forms.TextInput(attrs={'id': 'bairro'}),
+            'estado': forms.TextInput(attrs={'id': 'uf'}),
+            'cidade': forms.TextInput(attrs={'id': 'cidade'}),
+        }
 
 class CommentForm(forms.ModelForm):
 
