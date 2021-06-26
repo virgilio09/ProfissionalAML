@@ -460,6 +460,10 @@ a:hover {
 .add-servico {
     margin-top: 40px;
 }
+
+.add-servico .error {
+    color: red;
+}
 /* -------------------------- about-------------------------------- */
 
 .about {

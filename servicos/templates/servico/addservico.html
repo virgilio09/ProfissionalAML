@@ -15,14 +15,14 @@
         </div>
     </div>
 
-    <form method="POST" enctype="multipart/form-data">
+    <form id="form-servicos"method="POST" enctype="multipart/form-data">
         <div class="row">
             {%  csrf_token %}
             <div class="col-md-6">
                 {{ servicoForm|crispy }}
                 <div class="form-group">
-                    <label>Adicione images do seu serviço</label>
-                    <input name="images" type="file" multiple class="form-control-file">
+                    <label for="images">Adicione images do seu serviço</label>
+                    <input name="images" id="images" type="file" multiple class="form-control-file" accept="image/jpg,image/png,image/jpeg">
                 </div>
             </div>
             <div class="col-md-6">

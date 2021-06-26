@@ -1,22 +1,20 @@
-
-// #backtotop
-jQuery("#backtotop").click(function () {
-    jQuery("body,html").animate({
-        scrollTop: 0
-    }, 600);
-});
-jQuery(window).scroll(function () {
-    if (jQuery(window).scrollTop() > 150) {
-        jQuery("#backtotop").addClass("visible");
-    } else {
-        jQuery("#backtotop").removeClass("visible");
-    }
-});
-
-// ------------------- formulario add serviço ----------------
-
 $(document).ready(function(){
-
+    // #backtotop
+    jQuery("#backtotop").click(function () {
+        jQuery("body,html").animate({
+            scrollTop: 0
+        }, 600);
+    });
+    jQuery(window).scroll(function () {
+        if (jQuery(window).scrollTop() > 150) {
+            jQuery("#backtotop").addClass("visible");
+        } else {
+            jQuery("#backtotop").removeClass("visible");
+        }
+    });
+    
+    // ------------------- formulario add serviço ----------------
+    
     // mask
     $('.cep').mask('00000-000');
 
@@ -89,5 +87,69 @@ $(document).ready(function(){
             limpa_formulário_cep();
         }
     });
-
+    
+    // validacao
+    $("#form-servicos").validate({
+        rules:{
+            nome:{
+                minlength: 3
+            },
+            descricao:{
+                minlength: 10
+            },
+            images:{
+               max: 4
+            }
+        },
+        messages:{
+            nome:{
+                required: "Por favor, informe seu nome",
+                minlength: "O nome deve ter pelo menos 3 caracteres" 
+            },
+            categoria:{
+                required: "Por favor, ecolha uma categoria",
+            },
+            email:{
+                required: "Por favor, informe um email"
+            
+            },
+            telefone01:{
+                required: "Por favor, informe um telefone e/ou celular"
+            
+            },
+            descricao:{
+                required: "Por favor, informe uma descrição",
+                minlength: "A descrição deve ter pelo menos 10 caracteres" 
+            },
+            images:{
+                max: "É permitido apenas 4 images"
+            },
+            cep:{
+                required: "Por favor, informe seu cep"
+            
+            },
+            rua:{
+                required: "Por favor, informe a rua"
+            
+            },
+            numero:{
+                required: "Por favor, informe o número"
+            
+            },
+            bairro:{
+                required: "Por favor, informe o bairro"
+            
+            },
+            estado:{
+                required: "Por favor, informe o estado"
+            
+            },
+            cidade:{
+                required: "Por favor, informe a cidade"
+            
+            },
+            
+            
+        }
+    });
 });
