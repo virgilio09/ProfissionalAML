@@ -1,0 +1,94 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block content %}
+<div class="dashboard p-3">
+    <div class="row">
+        <div class="col">
+            <div class="custom-title mt-4">
+                <h2>Meus serviços</h2>
+                <span class="section-separator mb-4"></span>
+                <div class="hello">
+                    <h3>Olá, seja bem vindo(a)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if exite %}
+        <div class="row">
+            <div class="col-sm-12 col-md-9 search-div">
+                <form method="GET" id="search-form">
+                    <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da servço para buscar...">
+                    <i class="fas fa-search" id="search-btn"></i>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-2 filter">
+                <span>Filtrar por:</span>
+                <select name="filter" id="filter" class="form-control">
+                    <option value="">Escolha uma opção...</option>
+                    <option value="done">Mais recentes</option>
+                    <option value="doing">Mais antigos</option>
+                </select>
+            </div>
+        </div>
+
+        {% if request.GET.search %}
+            {% if achou %}
+                <div class="row">
+                    <div class="col">
+                        <div class="info-dasboard">
+                            <h3>Resultado da busca por: {{request.GET.search}}</h3>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col">
+                    <div class="info-dasboard">
+                        <h3>Resultado da busca por: {{request.GET.search}}</h3>
+                        <p>Nada encontrado... para voltar clique <a href="{% url 'dashboard' %}">aqui</a></p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+        {% if servicos %}
+            <div class="row">
+                <div class="col-12">
+                    <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Publicado</th>
+                                <th scope="col">Alterar</th>
+                                <th scope="col">Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for servico in servicos %}
+                                <tr>
+                                    <th scope="row">{{forloop.counter}}</th>
+                                    <td><a href="{% url 'servico-view' servico.id %}">{{servico.nome}}</a></td>
+                                    <td>{{servico.created_at|date:"d/M/Y"}}</td>
+                                    <td><a href=""><i class="fas fa-edit"></i></a></td>
+                                    <td><a href=""><i class="fas fa-trash"></i></a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="row">
+            <div class="col">
+                <div class="info-dasboard">
+                    <h3>Não há nenhum serviço</h3>
+                    <p>Para adicionar um serviço clique <a href="{% url 'add-servico' %}">aqui</a></p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

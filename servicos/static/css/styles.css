@@ -464,6 +464,26 @@ a:hover {
 .add-servico .error {
     color: red;
 }
+
+/* ------------------------ dashboard ----------------------------- */
+
+.dashboard {
+    margin-top: 50px;
+}
+
+.dashboard .fas.fa-search {
+    position: absolute;
+    top: 12px;
+    right: 26px;
+    cursor: pointer;
+}
+
+.dashboard .search-div {
+    margin-top: 24px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
 /* -------------------------- about-------------------------------- */
 
 .about {

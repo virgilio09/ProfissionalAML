@@ -98,3 +98,30 @@ def servicoView(request, id):
         }
 
         return render(request, 'servico/servicoView.html', context)
+
+def dashboard(request):
+
+    search = request.GET.get('search')
+    filter = request.GET.get('filter')
+    achou = False # caso encontre algo na busca
+    exite = True # caso exita algum serviço 
+
+    servicos = Servico.objects.filter(user=request.user)
+
+    if(servicos.exists()): 
+        if search:
+            servicos = Servico.objects.filter(nome__icontains=search, user=request.user)
+
+            if(servicos.exists()):
+                achou = True
+    else:
+        exite = False
+
+    context = {
+        'servicos': servicos,
+        'achou': achou,
+        'exite': exite
+        
+    }
+
+    return render(request, 'servico/dashboard.html', context)

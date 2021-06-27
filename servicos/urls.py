@@ -6,5 +6,5 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('addservico/', views.addServico, name="add-servico"),
     path('servico/<int:id>', views.servicoView, name='servico-view'),
-  
+    path('dashboard/', views.dashboard, name='dashboard')
 ] 
