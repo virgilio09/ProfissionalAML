@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .models import Categoria, Servico, Imagem, Comment
 from .forms import CommentForm, ServicoForm, EndForm
-
+from django.contrib import messages
 
 def home(request):
     categorias = Categoria.objects.all()
@@ -38,14 +38,18 @@ def addServico(request):
         images = request.FILES.getlist('images')
 
         if servicoForm.is_valid() and endForm.is_valid():
+            print("input")
             servico = servicoForm.save(commit=False)
             endereco = endForm.save(commit=False)
             endereco.save()
+            print("Salvou endereço")
 
             servico.user = request.user
             servico.endereco_id = endereco.id
             servico.capa = images.pop(0)
             servico.save()
+            print("Salvou servico")
+
 
             # upload das images
             if(images != []):
@@ -54,8 +58,11 @@ def addServico(request):
                         servico_id=servico.id,
                         image=image,
                     )
-    
-            return redirect('home')
+            
+            print("Salvou ")
+            messages.success(request, 'Serviço adicionado com sucesso..')
+            return redirect('dashboard')
+       
     else:
         servicoForm = ServicoForm()
         endForm = EndForm()
@@ -99,8 +106,18 @@ def servicoView(request, id):
 
         return render(request, 'servico/servicoView.html', context)
 
-def dashboard(request):
 
+def removeServico(request, id):
+    servico = get_object_or_404(Servico, pk=id)
+    servico.delete()
+
+    messages.success(request, 'Serviço removido com sucesso..')
+    
+    return redirect('dashboard')
+
+
+def dashboard(request):
+    
     search = request.GET.get('search')
     filter = request.GET.get('filter')
     achou = False # caso encontre algo na busca

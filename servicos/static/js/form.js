@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    // ------------------- formulario add serviço ----------------
+// ------------------- formulario add serviço ----------------
     
     // mask
     $('.cep').mask('00000-000');
@@ -59,14 +59,15 @@ $(document).ready(function(){
                     else {
                         //CEP pesquisado não foi encontrado.
                         limpa_formulário_cep();
-                        alert("CEP não encontrado.");
+                        bootbox.alert("CEP não encontrado.");
+                
                     }
                 });
             } //end if.
             else {
                 //cep é inválido.
                 limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
+                bootbox.alert("Formato de CEP inválido.");
             }
         } //end if.
         else {
@@ -84,9 +85,10 @@ $(document).ready(function(){
             descricao:{
                 minlength: 10
             },
-            images:{
-               max: 4
-            }
+            // images:{
+            //     max: 4
+              
+            // }
         },
         messages:{
             nome:{
@@ -108,9 +110,9 @@ $(document).ready(function(){
                 required: "Por favor, informe uma descrição",
                 minlength: "A descrição deve ter pelo menos 10 caracteres" 
             },
-            images:{
-                max: "É permitido apenas 4 images"
-            },
+            // images:{
+            //     // max: "É permitido apenas 4 images"
+            // },
             cep:{
                 required: "Por favor, informe seu cep"
             
@@ -139,5 +141,4 @@ $(document).ready(function(){
             
         }
     });
-
 });

@@ -23,7 +23,7 @@ class Servico(models.Model):
     nome = models.CharField(max_length=50)
     user = models.ForeignKey(User,  on_delete=models.CASCADE, null=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=False)
-    capa =  models.ImageField(null=False, blank=False)
+    capa =  models.ImageField(null=True, blank=True)
     email = models.EmailField(null=False, blank=False)
     telefone01 = models.CharField(max_length=11, blank=False, null=False, verbose_name='Telefone 1')
     telefone02 = models.CharField(max_length=11, blank=True, null=True, verbose_name='Telefone 2 (Opcional)')

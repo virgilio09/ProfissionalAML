@@ -33,7 +33,13 @@
                 </select>
             </div>
         </div>
-
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         {% if request.GET.search %}
             {% if achou %}
                 <div class="row">
@@ -54,14 +60,14 @@
         {% endif %}
         {% if servicos %}
             <div class="row">
-                <div class="col-12">
+                <div class="table-responsive-sm col-12">
                     <table class="table mt-4">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Publicado</th>
-                                <th scope="col">Alterar</th>
+                                <th scope="col">Editar</th>
                                 <th scope="col">Remover</th>
                             </tr>
                         </thead>
@@ -72,23 +78,32 @@
                                     <td><a href="{% url 'servico-view' servico.id %}">{{servico.nome}}</a></td>
                                     <td>{{servico.created_at|date:"d/M/Y"}}</td>
                                     <td><a href=""><i class="fas fa-edit"></i></a></td>
-                                    <td><a href=""><i class="fas fa-trash"></i></a></td>
+                                    <td><a href="{% url 'rm-servico' servico.id %}" class="rm-btn"><i class="fas fa-trash"></i></a></td>
+                                    
                                 </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
+        
         {% endif %}
     {% else %}
         <div class="row">
             <div class="col">
                 <div class="info-dasboard">
-                    <h3>Não há nenhum serviço</h3>
+                    <h3>Você ainda não possui nenhum serviço</h3>
                     <p>Para adicionar um serviço clique <a href="{% url 'add-servico' %}">aqui</a></p>
                 </div>
             </div>
         </div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endif %}
 </div>
 {% endblock %}
