@@ -13,6 +13,14 @@ body {
     padding: 0px;
 }
 
+li {
+    list-style-type: none;  
+}
+
+.messages {
+    padding: 0px;
+}
+
 /* Btn  */
 
 .btn {
@@ -479,15 +487,22 @@ a:hover {
 }
 
 .dashboard .search-div {
-    margin-top: 24px;
-    margin-bottom: 15px;
+    
     display: inline-block;
 }
 
-.dashboard li {
-    list-style-type: none;  
+
+/* .dashboard .filter {
+    margin-left: 60px;
+    padding-left: 50px;
 }
 
+@media screen and (max-width:750px){
+    .dashboard .filter {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+} */
 /* -------------------------- about-------------------------------- */
 
 .about {

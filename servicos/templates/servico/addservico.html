@@ -19,6 +19,8 @@
         <div class="row">
             {%  csrf_token %}
             <div class="col-md-6">
+                {{ servicoForm.non_field_errors }}
+
                 {{ servicoForm|crispy }}
                 <div class="form-group">
                     <label for="images">Adicione images do seu serviço</label>
