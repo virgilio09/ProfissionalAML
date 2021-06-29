@@ -17,6 +17,9 @@ li {
     list-style-type: none;  
 }
 
+.error {
+    color: red;
+}
 .messages {
     padding: 0px;
 }
@@ -65,7 +68,7 @@ a:hover {
     float: left;
     width: 100%;
     position: relative;
-    margin: 0;
+    margin-bottom: 20px;
 
 }
 
@@ -275,7 +278,6 @@ a:hover {
 }
 
 
-
 /*---------------- Back to Top ----------------------*/
 
 #backtotop{
@@ -315,6 +317,11 @@ a:hover {
 
 /* ---------------------------- carrousel servico View --------------------- */
 
+
+.content-view {
+    margin-top: 50px;
+    padding: 40px;
+}
 .carousel-inner img {
     width: 100%;
     height: 100%
@@ -466,17 +473,24 @@ a:hover {
 /*--------------------------- ADD-SERVICO --------------------------*/
 
 .add-servico {
-    margin-top: 40px;
+    margin-top: 50px;
+    padding: 40px;
 }
 
-.add-servico .error {
-    color: red;
+.add-servico form label {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    color: #404040;
+    line-height: 24px;
 }
+
+
 
 /* ------------------------ dashboard ----------------------------- */
 
 .dashboard {
     margin-top: 50px;
+    padding: 40px;
 }
 
 .dashboard .fas.fa-search {

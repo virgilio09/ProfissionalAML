@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class Endereco(models.Model):
-    cep = models.CharField(max_length=8, null=False, blank=False)
+    cep = models.CharField(max_length=9, null=False, blank=False, verbose_name='CEP')
     rua = models.CharField(max_length=200, null=False, blank=False)
     numero = models.IntegerField(null=False, blank=False)
     complemento = models.CharField(max_length=200, null=True, blank=True)
@@ -25,8 +25,8 @@ class Servico(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=False)
     capa =  models.ImageField(null=True, blank=True)
     email = models.EmailField(null=False, blank=False)
-    telefone01 = models.CharField(max_length=11, blank=False, null=False, verbose_name='Telefone 1')
-    telefone02 = models.CharField(max_length=11, blank=True, null=True, verbose_name='Telefone 2 (Opcional)')
+    telefone01 = models.CharField(max_length=15, blank=False, null=False, verbose_name='Telefone 1')
+    telefone02 = models.CharField(max_length=15, blank=True, null=True, verbose_name='Telefone 2 (Opcional)')
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, null=False)
     descricao = models.TextField()
 

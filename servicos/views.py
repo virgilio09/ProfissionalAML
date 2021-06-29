@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Categoria, Servico, Imagem, Comment
 from .forms import CommentForm, ServicoForm, EndForm
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 def home(request):
     categorias = Categoria.objects.all()
@@ -59,7 +60,6 @@ def addServico(request):
                         image=image,
                     )
             
-            print("Salvou ")
             messages.success(request, 'Serviço adicionado com sucesso..')
             return redirect('dashboard')
        
@@ -91,7 +91,10 @@ def servicoView(request, id):
             comment = commentForm.save(commit=False)
             comment.servico_id = id
             comment.save()
-            # return redirect('home')
+        
+            messages.success(request, 'Comentario adicionado com sucesso..')
+            
+            return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
     else:
         commentForm = CommentForm()

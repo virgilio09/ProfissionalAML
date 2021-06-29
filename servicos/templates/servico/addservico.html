@@ -5,12 +5,15 @@
 {% block title %}add servico{% endblock %}
 
 {% block content %}
-<div class="add-servico p-5">
+<div class="add-servico">
     <div class="row">
         <div class="col">
             <div class="custom-title">
                 <h2>Adicione um seviço</h2>
-                <span class="section-separator mb-3"></span>
+                <span class="section-separator"></span>
+            </div>
+            <div>
+                <p>Campos marcados com (*) são obrigatórios.</p>
             </div>
         </div>
     </div>
@@ -19,8 +22,6 @@
         <div class="row">
             {%  csrf_token %}
             <div class="col-md-6">
-                {{ servicoForm.non_field_errors }}
-
                 {{ servicoForm|crispy }}
                 <div class="form-group">
                     <label for="images">Adicione images do seu serviço</label>
@@ -28,10 +29,10 @@
                 </div>
             </div>
             <div class="col-md-6">
-                {{ endForm|crispy }}
+                {{ endForm|crispy}}
             </div>
         </div>
-        <button type="submit" name="" id="" class="btn btn-block">Adicionar</button>
+        <button type="submit" name="" id="" class="btn">Adicionar</button>
     </form>
 </div>
 {% endblock %}
