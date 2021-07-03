@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth import models
 from django.forms import fields, widgets
 from .models import Servico, Endereco, Comment
+from django.core.exceptions import ValidationError
+
 
 class ServicoForm(forms.ModelForm):
 
@@ -15,7 +17,7 @@ class ServicoForm(forms.ModelForm):
             }),
             'descricao': forms.Textarea(attrs={
                 'placeholder': 'Descreva seu serviço...',
-                'rows': '3'
+                'rows': '4'
             }),
             'telefone01': forms.TextInput(attrs={
                 'class':'sp_celphones'
@@ -56,3 +58,4 @@ class CommentForm(forms.ModelForm):
                 'rows': '4'
             })
         }
+    

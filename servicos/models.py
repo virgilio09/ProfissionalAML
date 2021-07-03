@@ -20,9 +20,19 @@ class Categoria(models.Model):
         return self.nome
 
 class Servico(models.Model):
+
+    STATUS = (
+        ('ativo', 'Ativo'),
+        ('desativado', 'Desativado'),
+    )
+   
     nome = models.CharField(max_length=50)
     user = models.ForeignKey(User,  on_delete=models.CASCADE, null=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=False)
+    ativo = models.CharField(
+        max_length=10,
+        choices=STATUS,
+    )
     capa =  models.ImageField(null=True, blank=True)
     email = models.EmailField(null=False, blank=False)
     telefone01 = models.CharField(max_length=15, blank=False, null=False, verbose_name='Telefone 1')

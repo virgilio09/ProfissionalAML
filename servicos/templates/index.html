@@ -6,7 +6,7 @@
 
 <div id="demo">
     <div class="row justify-content-center mb-4">
-        <div class="col-md-auto text-center">
+        <div class="col-md-auto text-center rounded">
             <h1>Busque por um serviço:</h1>
             <p>Encontre profissionais de diferenres setores.</p>
         </div>
@@ -18,15 +18,19 @@
                     <input type="text" class="form-control rounded" placeholder="Nome do serviço?">
                 </div>
 
-                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
-                    <input type="text" class="form-control rounded" placeholder="Estado">
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-2">
+                    <select class="form-control rounded" id="Estado">
+                        
+                    </select>
                 </div>
 
-                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-2">
-                    <input type="text" class="form-control rounded" placeholder="Ciadade">
+                <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                    <select class="form-control" id="Cidade">
+                        <option>Cidade</option>
+                    </select>
                 </div>
                 <div class="col-lg-12 mb-4 mb-xl-0 col-xl-2">
-                    <select class="form-control rounded" name="" id="">
+                    <select class="form-control rounded" name="" id="category">
                         <option value='none'> Categoria </option>
 
                         {% for categoria in categorias %}
@@ -34,7 +38,7 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="col-lg-12 col-xl-2 ml-auto">
+                <div class="col-lg-12 md-2 col-xl-2 ml-auto">
                     <input class="btn btn-block" type="submit" value="Buscar">
                 </div>
             </div>

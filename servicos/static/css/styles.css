@@ -1,5 +1,4 @@
 /* ----------------------- Geral ------------------------*/
-
 body {
     font-family: 'Quicksand', sans-serif;
     /* background-color: #dfdfdf; */
@@ -12,20 +11,33 @@ body {
 .container-fluid {
     padding: 0px;
 }
-
-li {
+/* messages and alert  */
+.messages li {
     list-style-type: none;  
 }
 
-.error {
+.error, .asteriskField{
     color: red;
 }
 .messages {
     padding: 0px;
 }
 
-/* Btn  */
+.alert ul li {
+    list-style-type: none;  
+}
+.alert {
+    padding: 5px;
+}
 
+.campo-req span {
+    color: red;
+}
+/* Btn  */
+.plus {
+    margin-left: 10px;
+  
+}
 .btn {
     background: #4DB7FE;
     color: #fff;
@@ -47,16 +59,7 @@ li {
 }
 
 
-a {
-    color: rgba(0, 0, 0, 0.695);
-}
-
-a:hover {
-    color: #4DB7FE;
-    text-decoration: none;
-}
-
-/*---------------------- tripografia ---------------------- */
+/*---------------------- tipografia ---------------------- */
 
 .custom-title h2 {
     color: #566985;
@@ -81,6 +84,20 @@ a:hover {
     border-radius: 3px;
     background: #4db7fe;
 }
+
+
+@media screen and (max-width: 767px) {
+    .custom-title h2 {
+        font-size: 20px;
+    }
+
+
+    
+    /* .add-servico h2{
+        
+    }  */
+	
+}
 /* ------------------------- navbar ---------------------- */
 
 .navbar {
@@ -102,8 +119,9 @@ a:hover {
     margin-left: 5px;
     
 }
-#exit {
-    margin-right: 0px;
+.exit {
+    font-size: 14px;
+    padding-left: 5px;
 }
 
 #logo {
@@ -175,19 +193,24 @@ a:hover {
 }
 
 #demo p {
-    color: #fff;
+    color: #FFFAFA;
     font-size: 25px;
     margin-top: 20px;
-    font-weight: 500;
+    font-weight: 900;
 }
 
 #demo .seach-content {
-    padding: 20px;
-    margin: 0px 50px;
+    padding: 15px;
+    margin: 0px 20px;
     background: rgba(196, 196, 196, 0.45);
     border-radius: 5px;
 
 }
+
+#demo .seach-content select option{
+    font-weight: 580;
+}
+
 
 @media screen and (max-width:750px){
    
@@ -201,7 +224,6 @@ a:hover {
         margin-top: 10px;
         font-weight: 900;
     }
-
     
 }
 
@@ -228,6 +250,13 @@ a:hover {
 
 #block-info span {
     font-weight: 800;
+}
+
+#block-info  a {
+    color: #343a40;
+}
+#block-info  a:hover {
+    color: #4FB5F5;
 }
 
 #block-info .block-content{
@@ -275,6 +304,13 @@ a:hover {
     border-color: #4DB7FE;;
     box-shadow: none;
    
+}
+.form-group {
+    margin-bottom: 5px;
+}
+
+.form-group label {
+    margin-bottom: 4px;
 }
 
 
@@ -326,6 +362,7 @@ a:hover {
     width: 100%;
     height: 100%
 }
+
 
 #custCarousel .carousel-indicators {
     position: static;
@@ -451,7 +488,7 @@ a:hover {
 }
 
 /* -------------------------- login/register ------------------------------- */
-
+/* login */
 .auth-card {
     margin: 10rem 0px 10rem 0px;
 }
@@ -462,13 +499,151 @@ a:hover {
     margin-bottom: 10px;
 }
 
+.auth-card form p{
+    margin-top: 0px;
+}
+
+
+#help-login {
+    cursor: pointer;
+    color:#007bff;
+}
+
+#help-login:hover{
+    text-decoration: underline;
+
+
+}
+
 .change-form-p {
+    text-align: center;
     margin-top: 10px;
 }
-.change-form-p a {
-    color: #1E90FF;
-    font-weight: 500;
+.change-form-p p{
+    margin-bottom: 5px;
+
 }
+
+/* help collaps  */
+.accordion_one .panel-group {
+    margin-bottom: 0;
+    border: 1px solid #f1f1f1;
+    margin-left: 1px
+}
+
+.accordion_one .panel {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 0px solid transparent;
+    border-radius: 0;
+    margin: 0
+}
+
+.accordion_one .panel-default {
+    border: 0
+}
+
+.accordion_one .panel-default>.panel-heading {
+    border-radius: 0px
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit
+}
+
+.accordion_one h4 {
+    font-size: 18px;
+    line-height: 24px
+}
+
+.accordion_one .panel .panel-heading a.collapsed {
+    color: #999999;
+    display: block;
+    padding: 12px 30px;
+    border-top: 0px
+}
+
+.accordion_one .panel .panel-heading a {
+    display: block;
+    padding: 12px 30px;
+    background: #fff;
+    color: #313131;
+    border-bottom: 1px solid #f1f1f1
+}
+
+.accordion-wrap .panel .panel-heading a {
+    font-size: 14px
+}
+
+.accordion_one .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: 0;
+    padding-top: 0;
+    padding: 25px 30px 30px 35px;
+    background: #fff;
+    color: #999999
+}
+
+
+.accordion_one .panel .panel-heading a:after {
+    content: "\2212"
+}
+
+.accordion_one .panel .panel-heading a:after,
+.accordion_one .panel .panel-heading a.collapsed:after {
+    font-family: 'FontAwesome';
+    font-size: 15px;
+    width: 36px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: #F1F1F1;
+    float: left;
+    margin-left: -31px;
+    margin-top: -12px;
+    margin-right: 15px
+}
+
+/* Register */
+.content-register {
+    margin-top: 50px;
+    padding: 40px;
+
+}
+.card-register {
+    padding: 40px;
+}
+/* Media queries */
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+    .content-register {
+        margin-top: 40px;
+        padding: 0px;
+    
+    }
+    .card-register {
+        padding: 30px 15px 10px 15px;
+    }
+	
+}
+
+/* sm */
+/* @media screen and (min-width: 768px) {
+    .content-register {
+        margin-top: 40px;
+        padding: 0px;
+    
+    }
+    .card-register {
+        padding: 10px 15px 10px 15px;
+    }
+   
+
+} */
+
+
 
 /*--------------------------- ADD-SERVICO --------------------------*/
 
@@ -477,14 +652,32 @@ a:hover {
     padding: 40px;
 }
 
-.add-servico form label {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 700;
-    color: #404040;
-    line-height: 24px;
+.add-servico .card-servico {
+    padding: 40px;
 }
 
+.add-servico form p {
+    display: flex;
+    float: right;
+    margin-bottom: 4px;
+}
 
+@media screen and (max-width: 767px) {
+    .add-servico {
+        margin-top: 40px;
+        padding: 0px;
+    
+    }
+
+    .add-servico .card-servico {
+         padding: 30px 15px 10px 15px;
+    }
+    
+    /* .add-servico h2{
+        
+    }  */
+	
+}
 
 /* ------------------------ dashboard ----------------------------- */
 
@@ -501,8 +694,29 @@ a:hover {
 }
 
 .dashboard .search-div {
-    
     display: inline-block;
+}
+
+.dashboard .hello {
+    margin-bottom: 15px;
+}
+
+.dashboard .content-head {
+    margin: 10 0px 10px 0;   
+}
+.dashboard .content-head div{
+    margin-bottom: 5px;
+}
+
+.dashboard .fas.fa-trash  {
+    color: #db1e47;
+    font-size: 18px;
+    
+}
+.dashboard .fas.fa-edit, .fa-check {
+    color: #13c43f;
+    font-size: 18px;
+ 
 }
 
 

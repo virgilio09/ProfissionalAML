@@ -39,19 +39,16 @@ def addServico(request):
         images = request.FILES.getlist('images')
 
         if servicoForm.is_valid() and endForm.is_valid():
-            print("input")
             servico = servicoForm.save(commit=False)
+            servicoForm
             endereco = endForm.save(commit=False)
             endereco.save()
-            print("Salvou endereço")
 
             servico.user = request.user
             servico.endereco_id = endereco.id
             servico.capa = images.pop(0)
             servico.save()
-            print("Salvou servico")
-
-
+         
             # upload das images
             if(images != []):
                 for image in images:

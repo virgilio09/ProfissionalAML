@@ -75,7 +75,23 @@ $(document).ready(function(){
             limpa_formulário_cep();
         }
     });
+
+    $.validator.addMethod('fileMax', function(value, element, param) {
+        var count = 0;
+        count =element.files.length;
+       
+        return this.optional(element) || (count <= param)
+    }, 'A quantidade máxima é de {0} imagens');
     
+     
+    $.validator.addMethod('filesize', function(value, element, param) {
+        var count = 0;
+        for (var i = 0; i < element.files.length; i++) {
+        count += element.files[i].size;
+        }
+        return this.optional(element) || (count <= param)
+    }, 'O tamanho máxima é de {0} byte');
+
     // validacao
     $("#form-servicos").validate({
         rules:{
@@ -85,10 +101,11 @@ $(document).ready(function(){
             descricao:{
                 minlength: 10
             },
-            // images:{
-            //     max: 4
-              
-            // }
+            images:{
+                fileMax: 5,
+                filesize: 500000 //max size 500 kb,
+            },
+           
         },
         messages:{
             nome:{
@@ -110,9 +127,7 @@ $(document).ready(function(){
                 required: "Por favor, informe uma descrição",
                 minlength: "A descrição deve ter pelo menos 10 caracteres" 
             },
-            // images:{
-            //     // max: "É permitido apenas 4 images"
-            // },
+            
             cep:{
                 required: "Por favor, informe seu cep"
             

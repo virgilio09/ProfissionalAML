@@ -26,7 +26,7 @@
                     </form>
                 </div>
                 <div class="col-sm-12 col-md-2">
-                    <a class="btn btn-block" href="{% url 'add-servico' %}" >Add serviço<i class="fas fa-plus"></i></a>
+                    <a class="btn btn-block" href="{% url 'add-servico' %}" >Add serviço<i class="plus fas fa-plus-circle"></i></a>
                 </div>
             </div>
             <div class="row">
@@ -84,6 +84,7 @@
                                 <th scope="col">Publicado</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Remover</th>
+                                <th scope="col">Ativo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,6 +95,7 @@
                                     <td>{{servico.created_at|date:"d/M/Y"}}</td>
                                     <td><a href=""><i class="fas fa-edit"></i></a></td>
                                     <td><a href="{% url 'rm-servico' servico.id %}" class="rm-btn"><i class="fas fa-trash"></i></a></td>
+                                    <td><i class="fa fa-check"></i></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
