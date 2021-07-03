@@ -40,11 +40,11 @@ def addServico(request):
 
         if servicoForm.is_valid() and endForm.is_valid():
             servico = servicoForm.save(commit=False)
-            servicoForm
             endereco = endForm.save(commit=False)
             endereco.save()
 
             servico.user = request.user
+            servico.ativo = 'ativo'
             servico.endereco_id = endereco.id
             servico.capa = images.pop(0)
             servico.save()

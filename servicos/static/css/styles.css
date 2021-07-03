@@ -708,16 +708,40 @@ body {
     margin-bottom: 5px;
 }
 
-.dashboard .fas.fa-trash  {
+.fa-times {
     color: #db1e47;
+    
+   
+}
+
+.fa-check {
+    color: #13c43f;
+
+}
+
+.fa-check, .fa-times {
+    display:flex;
+    margin-left:12px;
+ 
+}
+.fas.fa-edit {
+    color: #1E90FF;
+    display:flex;
+    margin-left:14px;
+}
+
+.fas.fa-trash {
+    color: #EF651B;
+    display:flex;
+    margin-left:26px;
+
+}
+
+.fa-times, .fa-check, .fas.fa-edit, .fas.fa-trash {
     font-size: 18px;
     
 }
-.dashboard .fas.fa-edit, .fa-check {
-    color: #13c43f;
-    font-size: 18px;
- 
-}
+
 
 
 /* .dashboard .filter {

@@ -87,15 +87,21 @@
                                 <th scope="col">Ativo</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             {% for servico in servicos %}
                                 <tr>
                                     <th scope="row">{{forloop.counter}}</th>
-                                    <td><a href="{% url 'servico-view' servico.id %}">{{servico.nome}}</a></td>
+                                    <td ><a href="{% url 'servico-view' servico.id %}">{{servico.nome}}</a></td>
                                     <td>{{servico.created_at|date:"d/M/Y"}}</td>
                                     <td><a href=""><i class="fas fa-edit"></i></a></td>
                                     <td><a href="{% url 'rm-servico' servico.id %}" class="rm-btn"><i class="fas fa-trash"></i></a></td>
-                                    <td><i class="fa fa-check"></i></td>
+                                    {% if servico.ativo == 'ativo' %}
+                                        <td><i class="fa fa-check"></i></td>
+                                    {% else %}
+                                        <td><i class="fas fa-times"></i></td>
+                                    {% endif %}
+
                                 </tr>
                             {% endfor %}
                         </tbody>
