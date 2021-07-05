@@ -58,7 +58,18 @@ body {
     background: linear-gradient(to bottom right, #0E74A5, #52ad9c);
 }
 
+/* pagination */
 
+.pagination {
+    margin: 40px 0px 10px 0px;
+}
+.pagination span {
+    font-size: 20px;
+
+}
+.pagination a i {
+    color:#4DB7FE;
+}
 /*---------------------- tipografia ---------------------- */
 
 .custom-title h2 {
@@ -83,6 +94,7 @@ body {
     width: 50px;
     border-radius: 3px;
     background: #4db7fe;
+   
 }
 
 
@@ -125,7 +137,7 @@ body {
 }
 
 #logo {
-    margin-left: 50px;
+    margin-left: 70px;
     
 }
 
@@ -146,6 +158,10 @@ body {
 }
 .nav-link:hover {
     color: #fff !important;
+}
+
+.nav-user {
+    margin-right: 70px;
 }
 
 @media screen and (max-width:750px){
@@ -229,6 +245,10 @@ body {
 
 /* ----------------------------- Home-cards -------------- */
 
+#servicos {
+    margin-top: 10px;
+    padding: 40px;
+}
 
 #servicos .card, .capa, img {
     border-radius: 8px 8px 0px 0px;
@@ -704,9 +724,22 @@ body {
 .dashboard .content-head {
     margin: 10 0px 10px 0;   
 }
+
 .dashboard .content-head div{
     margin-bottom: 5px;
 }
+
+.dashboard .content-head .filter .fa-sort-amount-down{
+    font-size: 14px;
+    margin-right: 2px;
+}
+
+.dashboard table a{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
 
 .fa-times {
     color: #db1e47;
@@ -742,12 +775,6 @@ body {
     
 }
 
-
-
-/* .dashboard .filter {
-    margin-left: 60px;
-    padding-left: 50px;
-}
 
 @media screen and (max-width:750px){
     .dashboard .filter {

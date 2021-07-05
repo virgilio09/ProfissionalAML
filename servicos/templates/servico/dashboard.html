@@ -19,24 +19,25 @@
     {% if exite %}
         <div class="content-head">
             <div class="row">
+                <div class="col-sm-12 col-md-2">
+                    <a class="btn btn-block" href="{% url 'add-servico' %}" >Add serviço<i class="plus fas fa-plus-circle"></i></a>
+                </div>
                 <div class="col-sm-12 col-md-10 search-div">
                     <form method="GET" id="search-form">
                         <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da servço para buscar...">
                         <i class="fas fa-search" id="search-btn"></i>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-2">
-                    <a class="btn btn-block" href="{% url 'add-servico' %}" >Add serviço<i class="plus fas fa-plus-circle"></i></a>
-                </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-2">
                     <div class="filter">
-                        <span>Filtrar por:</span>
+                        <span><i class="fas fa-sort-amount-down"></i>Filtrar por:</span>
                         <select name="filter" id="filter" class="form-control">
-                            <option value="">Opções..</option>
-                            <option value="done">Mais recentes</option>
-                            <option value="doing">Mais antigos</option>
+                            <option value="">Opção</option>
+                            <option active value="todos">Todos</option>
+                            <option value="ativo">Ativos</option>
+                            <option value="desativado">Desativados</option>
                         </select>
                     </div>
                 </div>
@@ -73,6 +74,27 @@
                 </div>
             {% endif %}
         {% endif %}
+        {% if request.GET.filter and request.GET.filter != 'todos' %}
+            {% if status %}
+                <div class="row">
+                    <div class="col">
+                        <div class="info-dasboard">
+                            <h3>Serviços {{request.GET.filter}}s</h3>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="info-dasboard">
+                            <h3>Não exitem serviços {{request.GET.filter}}s</h3>
+                            <p>Para voltar a lista clique <a href="{% url 'dashboard' %}">aqui</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+
         {% if servicos %}
             <div class="row">
                 <div class="table-responsive col-12">

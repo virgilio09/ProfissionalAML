@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	
 	<!-- CSS da aplicação -->
-	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">  
 	<title>{% block title %}{% endblock %}</title>
 </head>
 	<body id=top>
@@ -43,13 +43,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'dashboard' %}"><i class="fas fa-cogs"></i>Meus serviços</a>
                                 </li>
-                                <li class="nav-item dropdown d">
+                                <li class="nav-item dropdown nav-user">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-user"></i>{{user}}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                      <a class="dropdown-item" href="#">Action</a>
-                                      <a class="dropdown-item" href="#">Another action</a>
+                                      <a class="dropdown-item" href="#">Minha conta</a>
                                       <div class="dropdown-divider"></div>
                                       <a class="dropdown-item" href="{% url 'logout' %}">Sair<i class="fas fa-sign-in-alt exit"></i></a>
                                     </div>
@@ -102,5 +101,5 @@
         <script src="{% static 'js/jquery.mask.min.js' %}"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" integrity="sha512-RdSPYh1WA6BF0RhpisYJVYkOyTzK4HwofJ3Q7ivt/jkpW6Vc8AurL1R+4AUcvn9IwEKAPm/fk7qFZW3OuiUDeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	</body>
+    </body>
 </html>

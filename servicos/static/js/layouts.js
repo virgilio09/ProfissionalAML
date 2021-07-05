@@ -14,9 +14,11 @@ $(document).ready(function(){
     });
 
     // ---------------------- dashboard ----------------------------
+    var baseUrl   = 'http://127.0.0.1:8000/dashboard/'; 
     var searchBtn = $('#search-btn');
     var searchForm = $('#search-form');
     var rmBtn = $('.rm-btn')
+    var filter     = $('#filter');
     
     $(searchBtn).on('click', function() {
         searchForm.submit();
@@ -48,49 +50,63 @@ $(document).ready(function(){
         });
 
     });
-    
+
+    $(filter).change(function() {
+        var filter = $(this).val();
+        window.location.href = baseUrl + '?filter=' + filter;
+    });
     
     // preenchimento ciadde e estado home
-    carregar_json('Estado');
-    function carregar_json(id, cidade_id){
-        var html = '';
+    var estados_cidades = 'https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json'
 
-        $.getJSON('https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json', function(data){
-            html += '<option>Selecionar '+ id +'</option>';
-            // console.log(data);
-            if(id == 'Estado' && cidade_id == null){
-                for(var i = 0; i < data.estados.length; i++){
-                    html += '<option value='+ data.estados[i].sigla +'>'+ data.estados[i].nome+'</option>';
-                }
-            }else{
-                for(var i = 0; i < data.estados.length; i++){
-                    if(data.estados[i].sigla == cidade_id){
-                        for(var j = 0; j < data.estados[i].cidades.length; j++){
-                            html += '<option value='+ data.estados[i].sigla +'>'+data.estados[i].cidades[j]+ '</option>';
-                        }
-                    }
+    $.getJSON(estados_cidades, function(json_cidades){
+  
+        $('#estado').change(function(){
+            var e = ($(this).val());
+            document.querySelector("#cidade").innerHTML = '';
+            var cidade_select = document.querySelector("#cidade");
+        
+            var num_estados = json_cidades.estados.length;
+            var j_index = -1;
+        
+            // aqui eu pego o index do Estado dentro do JSON
+            for(var x=0;x<num_estados;x++){
+                if(json_cidades.estados[x].sigla == e){
+                j_index = x;
                 }
             }
-
-            $('#'+id).html(html);
-        });
         
-    }
-
-    $(document).on('change', '#Estado', function(){
-        var cidade_id = $(this).val();
+            if(j_index != -1){
+            
+                // aqui eu percorro todas as cidades e crio os OPTIONS
+                json_cidades.estados[j_index].cidades.forEach(function(cidade){
+                var cid_opts = document.createElement('option');
+                cid_opts.setAttribute('value',cidade)
+                cid_opts.innerHTML = cidade;
+                cidade_select.appendChild(cid_opts);
+                });
+            }else{
+                document.querySelector("#cidade").innerHTML = '';
+            }
+            
+        });
+    });
+    $('#name').change(function(){
         $(this).css('font-weight', '600');
-        if(cidade_id != null){
-            carregar_json('Cidade', cidade_id);
-        }
     });
 
-    $('#Cidade').change(function(){
+    $('#estado').change(function(){
+        $(this).css('font-weight', '600');
+    });
+
+    $('#cidade').change(function(){
         $(this).css('font-weight', '600');
     });
 
     $('#category').change(function(){
         $(this).css('font-weight', '600');
     });
+
+
 
 });

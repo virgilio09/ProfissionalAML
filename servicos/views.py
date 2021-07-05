@@ -5,16 +5,51 @@ from .models import Categoria, Servico, Imagem, Comment
 from .forms import CommentForm, ServicoForm, EndForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 
 def home(request):
     categorias = Categoria.objects.all()
-    servicos = Servico.objects.all()
+    qtd_servico = Servico.objects.count()
     qtd_user = User.objects.count()
+
+    nome = request.GET.get('nome')
+    estado = request.GET.get('estado')
+    cidade = request.GET.get('cidade')
+    category = request.GET.get('category')
+
+    existe = True
+
+    servicos_list = Servico.objects.all().order_by('-created_at')
+
+    if(servicos_list.exists()): 
     
+        # filter
+        if nome and estado and cidade and category:
+            servicos_list = Servico.objects.select_related('endereco').filter(nome__icontains=nome, endereco__estado=estado, endereco__cidade=cidade, categoria=category)
+
+        elif estado and cidade and category:
+            servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade, categoria=category)
+        
+        elif estado and cidade:
+            servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade)
+        
+        elif nome:
+            servicos_list = Servico.objects.filter(nome__icontains=nome)
+
+        paginator = Paginator(servicos_list, 1)
+
+        page = request.GET.get('page')
+        servicos = paginator.get_page(page)
+    
+    else:
+        existe = False
+
     context = { 
         'servicos': servicos,
         'categorias': categorias,
-        'qtd_user': qtd_user
+        'qtd_user': qtd_user,
+        'qtd_servico': qtd_servico,
+        'existe': existe
     }
     
     return render(request, 'index.html', context)
@@ -122,8 +157,9 @@ def dashboard(request):
     filter = request.GET.get('filter')
     achou = False # caso encontre algo na busca
     exite = True # caso exita algum serviço 
-
-    servicos = Servico.objects.filter(user=request.user)
+    status = False # active or not 
+    
+    servicos = Servico.objects.all().order_by('-created_at').filter(user=request.user)
 
     if(servicos.exists()): 
         if search:
@@ -131,13 +167,20 @@ def dashboard(request):
 
             if(servicos.exists()):
                 achou = True
+        elif filter and filter != "todos":
+            servicos = Servico.objects.filter(ativo=filter, user=request.user)
+
+            if(servicos.exists()):
+                status = True
+
     else:
         exite = False
 
     context = {
         'servicos': servicos,
         'achou': achou,
-        'exite': exite
+        'exite': exite,
+        'status': status
         
     }
 
