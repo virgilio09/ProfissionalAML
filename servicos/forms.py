@@ -9,12 +9,10 @@ class ServicoForm(forms.ModelForm):
 
     class Meta:
         model = Servico
-        fields = ['nome', 'categoria', 'email', 'telefone01', 'telefone02', 'descricao']
+        fields = ['status','nome', 'categoria', 'email', 'telefone01', 'telefone02', 'descricao']
 
         widgets = {
-            'nome': forms.TextInput(attrs={
-                'placeholder': 'Nome do servico'
-            }),
+
             'descricao': forms.Textarea(attrs={
                 'placeholder': 'Descreva seu serviço...',
                 'rows': '4'

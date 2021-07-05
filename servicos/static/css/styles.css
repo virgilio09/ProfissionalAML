@@ -333,6 +333,14 @@ body {
     margin-bottom: 4px;
 }
 
+#form-servicos span .fa-question-circle {
+    position: absolute;
+    float: right;
+    margin-left: 55px;
+    cursor: pointer;
+    
+}
+
 
 /*---------------- Back to Top ----------------------*/
 
@@ -682,6 +690,8 @@ body {
     margin-bottom: 4px;
 }
 
+
+
 @media screen and (max-width: 767px) {
     .add-servico {
         margin-top: 40px;
@@ -754,7 +764,7 @@ body {
 
 .fa-check, .fa-times {
     display:flex;
-    margin-left:12px;
+    margin-left:14px;
  
 }
 .fas.fa-edit {

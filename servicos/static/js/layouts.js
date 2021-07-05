@@ -56,6 +56,19 @@ $(document).ready(function(){
         window.location.href = baseUrl + '?filter=' + filter;
     });
     
+    $('.help-status').on('click',function(){
+        bootbox.alert({
+            title: 'O que significa um serviço Ativo ou Desativado',
+            message: "<p><strong>Ativo</strong> - Seu serviço será divulgado no site.</p>"+
+                     "<p><strong>Desativado</strong> - Seu serviço fica inativo, podendo ser ativado posteriomente.</p",
+            
+            buttons: {
+                ok: {
+                    className: 'btn'
+                }
+            }
+        });
+    });
     // preenchimento ciadde e estado home
     var estados_cidades = 'https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json'
 

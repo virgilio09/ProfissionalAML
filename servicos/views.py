@@ -1,7 +1,7 @@
 from django.http import request
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.models import User
-from .models import Categoria, Servico, Imagem, Comment
+from .models import Categoria, Endereco, Servico, Imagem, Comment
 from .forms import CommentForm, ServicoForm, EndForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -168,7 +168,7 @@ def dashboard(request):
             if(servicos.exists()):
                 achou = True
         elif filter and filter != "todos":
-            servicos = Servico.objects.filter(ativo=filter, user=request.user)
+            servicos = Servico.objects.filter(status=filter, user=request.user)
 
             if(servicos.exists()):
                 status = True
@@ -185,3 +185,29 @@ def dashboard(request):
     }
 
     return render(request, 'servico/dashboard.html', context)
+
+def removeServico(request, id):
+    servico = get_object_or_404(Servico, pk=id)
+    servico.delete()
+
+    messages.success(request, 'Serviço removido com sucesso..')
+    
+    return redirect('dashboard')
+
+def editServico(request, id):
+    servico = get_object_or_404(Servico, pk=id)
+    endereco = Endereco.objects.filter(id=servico.endereco_id).first()
+    servicoForm = ServicoForm(instance=servico)
+    endForm = EndForm(instance=endereco)
+
+    if(request.method == 'POST'):
+        servicoForm = ServicoForm(request.POST, instance=servico)
+        # endForm = EndForm(request.POST, instance=endereco)
+    
+    else:
+        context = {
+            'servicoForm': servicoForm,
+            'endForm': endForm
+        }
+        
+        return render(request, 'servico/editservico.html', context)

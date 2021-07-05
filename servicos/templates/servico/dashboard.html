@@ -106,7 +106,7 @@
                                 <th scope="col">Publicado</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Remover</th>
-                                <th scope="col">Ativo</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
 
@@ -116,14 +116,13 @@
                                     <th scope="row">{{forloop.counter}}</th>
                                     <td ><a href="{% url 'servico-view' servico.id %}">{{servico.nome}}</a></td>
                                     <td>{{servico.created_at|date:"d/M/Y"}}</td>
-                                    <td><a href=""><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="{% url 'edit-servico' servico.id %}"><i class="fas fa-edit"></i></a></td>
                                     <td><a href="{% url 'rm-servico' servico.id %}" class="rm-btn"><i class="fas fa-trash"></i></a></td>
-                                    {% if servico.ativo == 'ativo' %}
+                                    {% if servico.status == 'ativo' %}
                                         <td><i class="fa fa-check"></i></td>
                                     {% else %}
                                         <td><i class="fas fa-times"></i></td>
                                     {% endif %}
-
                                 </tr>
                             {% endfor %}
                         </tbody>
