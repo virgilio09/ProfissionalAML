@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.http import request
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .models import Categoria, Endereco, Servico, Imagem, Comment
-from .forms import CommentForm, ServicoForm, EndForm
+from .forms import CommentForm, ServicoForm, EndForm, ImageForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
@@ -36,13 +37,14 @@ def home(request):
         elif nome:
             servicos_list = Servico.objects.filter(nome__icontains=nome)
 
-        paginator = Paginator(servicos_list, 1)
-
-        page = request.GET.get('page')
-        servicos = paginator.get_page(page)
     
     else:
         existe = False
+
+    paginator = Paginator(servicos_list, 1)
+
+    page = request.GET.get('page')
+    servicos = paginator.get_page(page)
 
     context = { 
         'servicos': servicos,
@@ -65,13 +67,14 @@ def about(request):
 
     return render(request, 'servico/about.html', context)
 
-
+@login_required
 def addServico(request):
 
     if request.method == 'POST': 
         servicoForm = ServicoForm(request.POST)
-        endForm = EndForm(request.POST)   
-        images = request.FILES.getlist('images')
+        endForm = EndForm(request.POST)
+        imageForm = ImageForm(request.POST, request.FILES)
+        images = request.FILES.getlist('image')
 
         if servicoForm.is_valid() and endForm.is_valid():
             servico = servicoForm.save(commit=False)
@@ -79,18 +82,14 @@ def addServico(request):
             endereco.save()
 
             servico.user = request.user
-            servico.ativo = 'ativo'
+            
             servico.endereco_id = endereco.id
-            servico.capa = images.pop(0)
             servico.save()
-         
+            servico.capa = images.pop(0)
             # upload das images
-            if(images != []):
-                for image in images:
-                    photo = Imagem.objects.create(
-                        servico_id=servico.id,
-                        image=image,
-                    )
+            for image in images:
+                image_instance = Imagem(image=image, servico=servico)
+                image_instance.save()
             
             messages.success(request, 'Serviço adicionado com sucesso..')
             return redirect('dashboard')
@@ -98,10 +97,13 @@ def addServico(request):
     else:
         servicoForm = ServicoForm()
         endForm = EndForm()
+        imageForm = ImageForm()
+
 
         context = {
             'servicoForm': servicoForm,
             'endForm': endForm,
+            'imageForm': imageForm
         
         }
 
@@ -141,7 +143,7 @@ def servicoView(request, id):
 
         return render(request, 'servico/servicoView.html', context)
 
-
+@login_required
 def removeServico(request, id):
     servico = get_object_or_404(Servico, pk=id)
     servico.delete()
@@ -150,7 +152,7 @@ def removeServico(request, id):
     
     return redirect('dashboard')
 
-
+@login_required
 def dashboard(request):
     
     search = request.GET.get('search')
@@ -186,6 +188,7 @@ def dashboard(request):
 
     return render(request, 'servico/dashboard.html', context)
 
+@login_required
 def removeServico(request, id):
     servico = get_object_or_404(Servico, pk=id)
     servico.delete()
@@ -194,20 +197,26 @@ def removeServico(request, id):
     
     return redirect('dashboard')
 
+@login_required
 def editServico(request, id):
     servico = get_object_or_404(Servico, pk=id)
     endereco = Endereco.objects.filter(id=servico.endereco_id).first()
+    
     servicoForm = ServicoForm(instance=servico)
     endForm = EndForm(instance=endereco)
 
     if(request.method == 'POST'):
         servicoForm = ServicoForm(request.POST, instance=servico)
-        # endForm = EndForm(request.POST, instance=endereco)
+        endForm = EndForm(request.POST, instance=endereco)
+
+        if servicoForm.is_valid() and endForm.is_valid():
+            servico.save()
+            endereco.save()
     
     else:
         context = {
             'servicoForm': servicoForm,
-            'endForm': endForm
+            'endForm': endForm,
         }
         
         return render(request, 'servico/editservico.html', context)

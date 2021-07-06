@@ -33,7 +33,7 @@ class Servico(models.Model):
         max_length=10,
         choices=STATUS,
     )
-    capa =  models.ImageField(null=True, blank=True)
+    capa = models.ImageField(null=True, blank=True)
     email = models.EmailField(null=False, blank=False)
     telefone01 = models.CharField(max_length=15, blank=False, null=False, verbose_name='Telefone 1')
     telefone02 = models.CharField(max_length=15, blank=True, null=True, verbose_name='Telefone 2 (Opcional)')
@@ -48,7 +48,7 @@ class Servico(models.Model):
 
 class Imagem(models.Model):
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, verbose_name='Adicione images do seu serviço')
 
     def __str__(self):
         return self.servico.nome

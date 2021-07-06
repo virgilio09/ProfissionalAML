@@ -101,13 +101,16 @@ $(document).ready(function(){
             descricao:{
                 minlength: 10
             },
-            images:{
+            image:{
                 fileMax: 5,
-                filesize: 500000 //max size 500 kb,
+                // filesize: 600000 //max size 600 kb,
             },
            
         },
         messages:{
+            status:{
+                required: "Por favor, defina o status",
+            },
             nome:{
                 required: "Por favor, informe seu nome",
                 minlength: "O nome deve ter pelo menos 3 caracteres" 

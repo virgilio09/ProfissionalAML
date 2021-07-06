@@ -102,12 +102,6 @@ body {
     .custom-title h2 {
         font-size: 20px;
     }
-
-
-    
-    /* .add-servico h2{
-        
-    }  */
 	
 }
 /* ------------------------- navbar ---------------------- */
@@ -588,7 +582,6 @@ body {
 }
 
 .accordion_one .panel .panel-heading a.collapsed {
-    color: #999999;
     display: block;
     padding: 12px 30px;
     border-top: 0px
@@ -611,7 +604,7 @@ body {
     padding-top: 0;
     padding: 25px 30px 30px 35px;
     background: #fff;
-    color: #999999
+    color: #313131;
 }
 
 
@@ -656,22 +649,6 @@ body {
     }
 	
 }
-
-/* sm */
-/* @media screen and (min-width: 768px) {
-    .content-register {
-        margin-top: 40px;
-        padding: 0px;
-    
-    }
-    .card-register {
-        padding: 10px 15px 10px 15px;
-    }
-   
-
-} */
-
-
 
 /*--------------------------- ADD-SERVICO --------------------------*/
 
@@ -785,13 +762,6 @@ body {
     
 }
 
-
-@media screen and (max-width:750px){
-    .dashboard .filter {
-        margin-left: 0px;
-        padding-left: 0px;
-    }
-} */
 /* -------------------------- about-------------------------------- */
 
 .about {
@@ -803,11 +773,19 @@ body {
     margin-top: 60px;
     margin-bottom: 20px;
 }
+.about .fa-star {
+    color: #566985;
+    font-weight: 900;
+    font-size: 25px;
+    margin-top: 20px;
+   
+}
 
 .about .title h1{
     color: #566985;
     font-weight: 900;
     font-size: 40px;
+   
 }
 
 .about .desc {
@@ -825,7 +803,7 @@ body {
 }
 
 @media (max-width: 630px) {
-    .title h1 {
+    .about .title h1 {
         font-size: 18px
     }
 }

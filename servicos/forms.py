@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth import models
+from django.db.models.base import Model
 from django.forms import fields, widgets
-from .models import Servico, Endereco, Comment
-from django.core.exceptions import ValidationError
+from .models import Imagem, Servico, Endereco, Comment
 
 
 class ServicoForm(forms.ModelForm):
@@ -56,4 +56,15 @@ class CommentForm(forms.ModelForm):
                 'rows': '4'
             })
         }
-    
+
+class ImageForm(forms.ModelForm):
+
+    class Meta:
+        model = Imagem
+        fields = ['image'] 
+
+        widgets = {
+           'image': forms.ClearableFileInput(attrs={'multiple': True}),
+        }
+        
+        
