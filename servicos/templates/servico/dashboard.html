@@ -10,19 +10,19 @@
             <div class="custom-title">
                 <h2>Meus serviços</h2>
                 <span class="section-separator"></span>
-                <div class="hello">
-                    <h3>Olá, seja bem vindo(a)</h3>
-                </div>
+            </div>
+            <div class="hello">
+                <h3>Olá, seja bem vindo(a)</h3>
             </div>
         </div>
     </div>
     {% if exite %}
         <div class="content-head">
             <div class="row">
-                <div class="col-sm-12 col-md-2">
+                <div class="col-sm-12 col-lg-2">
                     <a class="btn btn-block" href="{% url 'add-servico' %}" >Add serviço<i class="plus fas fa-plus-circle"></i></a>
                 </div>
-                <div class="col-sm-12 col-md-10 search-div">
+                <div class="col-sm-12 col-lg-10 search-div">
                     <form method="GET" id="search-form">
                         <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da servço para buscar...">
                         <i class="fas fa-search" id="search-btn"></i>

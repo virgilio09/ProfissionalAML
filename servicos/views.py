@@ -19,22 +19,22 @@ def home(request):
 
     existe = True
 
-    servicos_list = Servico.objects.all().order_by('-created_at')
+    servicos_list = Servico.objects.filter(status='ativo').order_by('-created_at')
 
     if(servicos_list.exists()): 
     
         # filter
         if nome and estado and cidade and category:
-            servicos_list = Servico.objects.select_related('endereco').filter(nome__icontains=nome, endereco__estado=estado, endereco__cidade=cidade, categoria=category)
+            servicos_list = Servico.objects.select_related('endereco').filter(nome__icontains=nome, endereco__estado=estado, endereco__cidade=cidade, categoria=category, status='ativo')
 
         elif estado and cidade and category:
-            servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade, categoria=category)
+            servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade, categoria=category, status='ativo')
         
         elif estado and cidade:
-            servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade)
+            servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade, status='ativo')
         
         elif nome:
-            servicos_list = Servico.objects.filter(nome__icontains=nome)
+            servicos_list = Servico.objects.filter(nome__icontains=nome, status='ativo')
 
     
     else:
@@ -219,3 +219,6 @@ def editServico(request, id):
         }
         
         return render(request, 'servico/editservico.html', context)
+
+def help(request):
+    return render(request,'servico/help.html')

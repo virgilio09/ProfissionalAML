@@ -58,6 +58,10 @@ body {
     background: linear-gradient(to bottom right, #0E74A5, #52ad9c);
 }
 
+.help-status {
+    cursor: pointer;
+}
+
 /* pagination */
 
 .pagination {
@@ -75,7 +79,6 @@ body {
 .custom-title h2 {
     color: #566985;
     font-weight: 700;
-    font-size: 34px;
 }
 
 .section-separator {
@@ -95,14 +98,6 @@ body {
     border-radius: 3px;
     background: #4db7fe;
    
-}
-
-
-@media screen and (max-width: 767px) {
-    .custom-title h2 {
-        font-size: 20px;
-    }
-	
 }
 /* ------------------------- navbar ---------------------- */
 
@@ -158,26 +153,6 @@ body {
     margin-right: 70px;
 }
 
-@media screen and (max-width:750px){
-
-    .btn-navbar{
-        width: 120px;
-        margin: 5px 10px 0px 10px;
-    }
-
-
-    #logo {
-        margin-left: 20px;
-        
-    }
-
-    #logo img {
-        max-width: 180px
-    }
-    
-
-}
-
 /* ---------------------------- Home demo -------------------*/
 
 #demo {
@@ -195,7 +170,6 @@ body {
 
 
 #demo h1 {
-    font-size: 4rem;
     font-weight: 700;
     color: #fff;
 
@@ -204,7 +178,7 @@ body {
 
 #demo p {
     color: #FFFAFA;
-    font-size: 25px;
+    font-size: 18px;
     margin-top: 20px;
     font-weight: 900;
 }
@@ -219,22 +193,6 @@ body {
 
 #demo .seach-content select option{
     font-weight: 580;
-}
-
-
-@media screen and (max-width:750px){
-   
-    #demo h1 {
-        font-size: 35px;
-    
-    }
-    
-    #demo p {
-        font-size: 18px;
-        margin-top: 10px;
-        font-weight: 900;
-    }
-    
 }
 
 /* ----------------------------- Home-cards -------------- */
@@ -305,13 +263,6 @@ body {
     border-radius: 50%;
 
 }   
-
-@media (max-width: 768px){
-    #block-info .block-content {
-        border-radius: 0px;
-        font-size: 14px;
-    }
-}
 
 /* ------------------------------ formulario ------------------- */
 .form-control:focus {
@@ -629,6 +580,7 @@ body {
 }
 
 /* Register */
+
 .content-register {
     margin-top: 50px;
     padding: 40px;
@@ -636,19 +588,6 @@ body {
 }
 .card-register {
     padding: 40px;
-}
-/* Media queries */
-/* xs < 768 */
-@media screen and (max-width: 767px) {
-    .content-register {
-        margin-top: 40px;
-        padding: 0px;
-    
-    }
-    .card-register {
-        padding: 30px 15px 10px 15px;
-    }
-	
 }
 
 /*--------------------------- my_acconts ---------------------------*/
@@ -675,7 +614,6 @@ body {
     padding: 40px;
 }
 .password-done p {
-    /* padding: 0px; */
     margin-top: 5px;
 }
 
@@ -697,24 +635,6 @@ body {
     margin-bottom: 4px;
 }
 
-
-
-@media screen and (max-width: 767px) {
-    .add-servico {
-        margin-top: 40px;
-        padding: 0px;
-    
-    }
-
-    .add-servico .card-servico {
-         padding: 30px 15px 10px 15px;
-    }
-    
-    /* .add-servico h2{
-        
-    }  */
-	
-}
 
 /* ------------------------ dashboard ----------------------------- */
 
@@ -760,12 +680,9 @@ body {
     font-weight: 700;
 }
 
-
-
 .fa-times {
     color: #db1e47;
     
-   
 }
 
 .fa-check {
@@ -773,7 +690,8 @@ body {
 
 }
 
-.fa-check, .fa-times {
+.dashboard .fa-check, 
+.dashboard .fa-times {
     display:flex;
     margin-left:14px;
  
@@ -795,6 +713,13 @@ body {
     font-size: 18px;
     
 }
+
+.dashboard th i {
+    position: absolute;
+    margin-left: 4px;
+}
+
+
 
 /* -------------------------- about-------------------------------- */
 
@@ -836,11 +761,6 @@ body {
    
 }
 
-@media (max-width: 630px) {
-    .about .title h1 {
-        font-size: 18px
-    }
-}
 .about-content {
     margin-bottom: 8em;
 }
@@ -896,6 +816,11 @@ body {
     line-height: 1.45em;
 }
 
+@media (max-width: 630px) {
+    .about .title {
+        font-size: 18px
+    }
+}
 /* ---------------------------- footer ---------------------------- */
 
 footer {
@@ -924,14 +849,3 @@ footer #termo a {
 footer #termo a:hover {
     color: #4DB7FE;
 }
-
-
- /* @media (max-width: 575.98px){
-    footer img {
-        text-align: center;
-    }
-    footer #termo a {
-         color: red;
-        text-align: center; 
-    }
-} */
