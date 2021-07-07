@@ -341,6 +341,7 @@ body {
 #backtotop{
     color:#FFFFFF; 
     background-color: #4DB7FE;
+    text-decoration: none;
 }
 
 #backtotop {
@@ -650,6 +651,35 @@ body {
 	
 }
 
+/*--------------------------- my_acconts ---------------------------*/
+.my-account {
+    margin-top: 50px;
+    padding: 40px;
+}
+
+.my-account .card .card-body {
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.my-account .card a i {
+    color: #4DB7FE;
+    font-size: 40px;
+    margin-top: 15px;
+   
+}
+
+/* ------------------------- password-done -------------------------*/
+.password-done {
+    margin-top: 50px;
+    padding: 40px;
+}
+.password-done p {
+    /* padding: 0px; */
+    margin-top: 5px;
+}
+
+
 /*--------------------------- ADD-SERVICO --------------------------*/
 
 .add-servico {
@@ -691,6 +721,10 @@ body {
 .dashboard {
     margin-top: 50px;
     padding: 40px;
+}
+
+.dashboard a{
+    text-decoration: none;
 }
 
 .dashboard .fas.fa-search {

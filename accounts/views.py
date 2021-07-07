@@ -11,7 +11,6 @@ class UserCreationForm(generic.CreateView):
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
    
-
 class UserEditView(generic.UpdateView):
     form_class = editProfileForm
     template_name = 'registration/edit_profile.html'
@@ -20,10 +19,6 @@ class UserEditView(generic.UpdateView):
     def get_object(self):
         return self.request.user
 
-def editSuccess(request):
-    messages.success(request, "Informaçãos alteradas com sucesso!")
-    return redirect('dashboard')
-
 class PasswordChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     template_name = 'registration/password_change.html'
@@ -31,7 +26,11 @@ class PasswordChangeView(PasswordChangeView):
 
 def passwordSuccess(request):
     messages.success(request, "Senha alterada com sucesso!!")
-    return redirect('dashboard')
+    return redirect('my_account')
+
+def editSuccess(request):
+    messages.success(request, "Informações alteradas com sucesso!")
+    return redirect('my_account')
 
 def myAccount(request):
     return render(request, 'my_account.html')
