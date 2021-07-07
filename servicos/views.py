@@ -224,7 +224,15 @@ def editServico(request, id):
         return render(request, 'servico/editservico.html', context)
 
 def help(request):
-    
+    search = request.GET.get('search_help')
     helps = Help.objects.all()
+    achou = True
+    
+    if search:
+        helps = Help.objects.filter(titulo__icontains=search)
 
-    return render(request,'servico/help.html', {'helps': helps})
+        if(not(helps.exists())):
+            achou = False
+   
+
+    return render(request,'servico/help.html', {'helps': helps, 'achou': achou})

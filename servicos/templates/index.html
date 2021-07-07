@@ -89,6 +89,7 @@
                             <img class="img-fluid" src="{{servico.capa.url}}" alt="{{servico.nome}}">
                         </div>
                         <div class="card-body">
+                            <i class="fas fa-star"></i>
                             <h4 class="card-title">{{servico.nome}}</h4>
                             <p class="card-text">Categoria: {{servico.categoria}}</p>
                             <a href="{% url 'servico-view' servico.id %}" class="btn">Saiba mais<i class="fas fa-arrow-right"></i></a>
@@ -97,17 +98,13 @@
                 </div>
             {% empty %}
                 <div class="col">
-                    <div class="info-dasboard">
-                        <h3>Nada encontrado</h3>
-                        <p>Para listar todos clique <a href="{% url 'home' %}">aqui</a></p>
-                    </div>
+                    <h3>Nada encontrado</h3>
+                    <p>Para listar todos clique <a href="{% url 'home' %}">aqui</a></p>
                 </div>
             {% endfor %}
         {% else %}
             <div class="col">
-                <div class="info-dasboard">
-                    <h3>Não há serviços</h3>
-                </div>
+                <h3>Não há serviços</h3>
             </div>
         {% endif %}
     </div>
@@ -134,25 +131,24 @@
     {% endif %}
 </div>
 
-<div id="block-info" class="gradient p-5">
-    <div class="row text-dark align-items-center">
-        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <div class="block-content rounded-top">
-                <i class="fas fa-cogs"></i><span>Quantidade de Serviços: {{ qtd_servico }}</span> 
+<div class="gradient home-info">
+    <div class="row">
+        <div class="four col-sm-12 col-md-4">
+            <div class="counter-box colored">  <i class="fas fa-users"></i> <span class="counter">{{qtd_user}}</span>
+                <p>Para todos os tipos profissionais..</p>
             </div>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-4">
-            <div class="block-content">
-                <i class="fas fa-users"></i> <span>Quantidade de usuarios: {{ qtd_user }}</span> 
+        <div class="four col-sm-12 col-md-4">
+            <div class="counter-box"> <i class="fas fa-cogs"></i> <span class="counter">{{qtd_servico}}</span>
+                <p>Você poderá oferecer seus serviços</p>
             </div>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <div class="block-content rounded-bottom">
-                <a href="{% url 'add-servico' %}">
-                    <i class="fas fa-plus"></i><span>Adicionar Serviço</span>
-                </a>
+        <div class="four col-sm-12 col-md-4">
+            <div class="counter-box"> <a href="{% url 'add-servico' %}"><i class="fas fa-plus-circle"></i> <span class="counter">{{qtd_servico}}</span></a>
+                <p>Adicione vários tipos de servicos.</p>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

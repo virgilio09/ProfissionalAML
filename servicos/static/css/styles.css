@@ -208,11 +208,32 @@ body {
     font-weight: 580;
 }
 
-/* ----------------------------- Home-cards -------------- */
-
+/* ----------------------------- Home-cards-servico -------------- */
+.home-info{
+    padding: 40px;
+}
 #servicos {
     margin-top: 10px;
     padding: 40px;
+}
+
+#servicos .card {
+    text-align: center;
+}
+
+#servicos .card .fa-star {
+    color: #4DB7FE;
+    font-size: 20px;
+}
+
+#servicos .card .card-title {
+    color: #566985;
+    font-weight: 600;
+}
+
+#servicos .card-text {
+    color: #4DB7FE;
+    font-weight: 600;
 }
 
 #servicos .card, .capa, img {
@@ -230,52 +251,6 @@ body {
     margin-left: 5px;
 }
 
-
-/* ---------------------info-block -----------=--------------------- */
-
-#block-info span {
-    font-weight: 800;
-}
-
-#block-info  a {
-    color: #343a40;
-}
-#block-info  a:hover {
-    color: #4FB5F5;
-}
-
-#block-info .block-content{
-    background: #fff;
-    padding-top: 35px;
-    height: 100px;
-    border-radius: 5px;
-
-}
-
-
-#block-info div span {
-    position: absolute;
-    left: 115px;
-}
-
-#block-info .fas {
-    background: #fff;
-}
-
-#block-info .block-content i{
-    color: #4FB5F5;
-    position: absolute;
-    top: 20px;
-    width: 60px;
-    left: 35px;
-    height: 60px;
-    line-height: 58px;
-    font-size: 22px;
-    text-align: center;
-    border: 1px solid  rgba(0,0,0,.1);
-    border-radius: 50%;
-
-}   
 
 /* ------------------------------ formulario ------------------- */
 .form-control:focus {
@@ -340,11 +315,12 @@ body {
 
 /* ---------------------------- carrousel servico View --------------------- */
 
-
 .content-view {
     margin-top: 50px;
     padding: 40px;
 }
+
+/* carousel */
 .carousel-inner img {
     width: 100%;
     height: 100%
@@ -416,11 +392,45 @@ body {
     margin-top: 5rem;
 }
 .content-descricao h4 {
-    font-weight: 700;
+    font-weight: 600;
 }
- .content-descricao p {
+
+.content-descricao p {
      text-align: justify;
- }
+}
+
+/* ------------------- content-detalhe ----------------- */
+.content-detalhe h4 {
+    font-weight: 600;
+}
+
+.content-detalhe ul {
+    list-style: none;
+  
+}
+.content-detalhe li:before {
+    content: '\2022';
+    margin: 0 4px;
+    color: #4db7fe;;
+}
+
+.content-detalhe p {
+    font-weight: 550;
+    margin: 0px;
+}
+
+.content-detalhe p i{
+    font-size: 18px;
+    color: #4db7fe;
+    margin-right: 5px;
+}
+
+.content-detalhe ul {
+    margin: 5px 0px 5px 0px;
+    padding: 0px 30px;
+}
+
+
 
  /* --------------------- area comments ---------------- */
  .sidebar-heading h4 {
@@ -744,7 +754,6 @@ body {
 
 .about .desc {
     text-align: center;
-    margin-bottom: 15px;
     padding: 10px 50px 10px 50px;
 }
 
