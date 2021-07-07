@@ -1,7 +1,48 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %}Sobre{% endblock %}
+{% block title %}Ajuda{% endblock %}
 
 {% block content %}
-
-{% endblok %}
+<div class="content-help">
+    <div class="row">
+        <div class="col">
+            <div class="custom-title">
+                <h2>Ajuda</h2>
+                <span class="section-separator"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-4 search-div">
+            <div class="form-group mb-3">
+                <form method="GET" id="search-form">
+                    <input class="form-control" type="text" id="search-help" name="search" placeholder="Buscar...">
+                    <i class="fas fa-search" id="search-btn"></i>
+                </form>
+            </div> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="accordion_one">
+                <div class="panel-group" id="accordion_oneRight">
+                    {% for help in helps %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion_oneRight" href="#collapseFiveRightone" aria-expanded="false"> {{help.titulo}} </a> </h4>
+                        </div>
+                        <div id="collapseFiveRightone" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                            <div class="panel-body">
+                                <div class="text-accordion">
+                                    <p> {{help.text}} </p>
+                                </div>
+                            </div> <!-- end of panel-body -->
+                        </div>   
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

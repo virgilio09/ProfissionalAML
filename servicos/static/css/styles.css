@@ -1,4 +1,5 @@
 /* ----------------------- Geral ------------------------*/
+
 body {
     font-family: 'Quicksand', sans-serif;
     /* background-color: #dfdfdf; */
@@ -52,6 +53,18 @@ body {
     /* border: solid 3px #B2B2B2; */
 
 }
+
+.fas.fa-search {
+    position: absolute;
+    top: 12px;
+    right: 26px;
+    cursor: pointer;
+}
+
+.search-div {
+    display: inline-block;
+}
+
 /* color */
 .gradient {
     color: #FFFFFF;
@@ -647,17 +660,6 @@ body {
     text-decoration: none;
 }
 
-.dashboard .fas.fa-search {
-    position: absolute;
-    top: 12px;
-    right: 26px;
-    cursor: pointer;
-}
-
-.dashboard .search-div {
-    display: inline-block;
-}
-
 .dashboard .hello {
     margin-bottom: 15px;
 }
@@ -724,14 +726,14 @@ body {
 /* -------------------------- about-------------------------------- */
 
 .about {
-    text-align: center;
-    color: gray;
-    padding: 40px
+    margin-top: 50px;
+    padding: 40px;
 }
-.about .title {
-    margin-top: 60px;
-    margin-bottom: 20px;
+
+.about a{
+    text-decoration: none;
 }
+
 .about .fa-star {
     color: #566985;
     font-weight: 900;
@@ -740,19 +742,12 @@ body {
    
 }
 
-.about .title h1{
-    color: #566985;
-    font-weight: 900;
-    font-size: 40px;
-   
+.about .desc {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px 50px 10px 50px;
 }
 
-.about .desc {
-    margin-bottom: 15px;
-    margin-top: 40px;
-    width: 70%;
-    margin: 0 auto
-}
 .about .desc p {
     font-size: 1.1em;
     color: #282228;
@@ -761,65 +756,51 @@ body {
    
 }
 
-.about-content {
-    margin-bottom: 8em;
-}
-.about-content .card {
-    display: flex;
-    text-align: center;
-    justify-content: center; 
-    flex-direction: column;
-    align-items: center; 
-    margin: 10px;
-    width: 350px;
-    padding: 14px 10px 12px 10px;
-    border-radius: 5px; 
+.counter-box {
+    display: block;
+    background: #f6f6f6;
+    padding: 40px 20px 37px;
+    text-align: center
 }
 
-.card_img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    box-shadow: 0 9px 30px -6px rgba(15, 136, 206, 0.342);
-    position: relative;
-    transition: transform .4s
+.counter-box p {
+    margin: 5px 0 0;
+    padding: 0;
+    color: #909090;
+    font-size: 18px;
+    font-weight: 500
 }
 
-.about-content .fas, .fab {
-    display: inline-block;
-    position: absolute;
-    color: #4FB5F5;
-    transform: translate(-52%, 75%);
-    font-size: 40px
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+    color: #d2d2d2
 }
 
-.card_title {
-    font-size: 20px;
-    margin: 12px;
-    font-weight: bold;
-    color: #000000a8;
-    transition: color .2s
+.counter {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #666;
+    line-height: 28px
 }
 
-.card:hover .card_title {
-    color: #4FB5F5;
+.counter-box.colored {
+    background: #4DB7FE;
 }
 
-.card:hover .card_img {
-    transform: translate(0px, -10px)
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+    color: #fff
 }
 
-.card_body p{
-    font-size: 1.1em;
-    color: #282228;
-    font-weight: 500;
-    line-height: 1.45em;
-}
+/* ----------------------------- help ----------------------------- */
 
-@media (max-width: 630px) {
-    .about .title {
-        font-size: 18px
-    }
+.content-help {
+    margin-top: 50px;
+    padding: 40px;
+
 }
 /* ---------------------------- footer ---------------------------- */
 

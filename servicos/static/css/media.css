@@ -85,6 +85,20 @@
     .card-register {
         padding: 15px 10px 15px 10px;
     }
+    /* -------------- about----------- */
+
+    .about {
+        margin-top: 50px;
+        padding: 10px;
+    }
+    
+    .about .desc {
+        margin-bottom: 15px;
+        padding: 10px;
+        /* padding: 10px 10px 10px 100px; */
+    }
+
+
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){

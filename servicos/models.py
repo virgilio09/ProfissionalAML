@@ -71,4 +71,6 @@ class Comment(models.Model):
     def __str__(self):
         return self.nome
    
-
+class Help(models.Model):
+    titulo = models.CharField(max_length=100)
+    text =  models.TextField()

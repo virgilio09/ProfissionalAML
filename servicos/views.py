@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.models import User
-from .models import Categoria, Endereco, Servico, Imagem, Comment
+from .models import Categoria, Endereco, Servico, Imagem, Comment, Help
 from .forms import CommentForm, ServicoForm, EndForm, ImageForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -211,6 +211,9 @@ def editServico(request, id):
         if servicoForm.is_valid() and endForm.is_valid():
             servico.save()
             endereco.save()
+
+            messages.success(request, 'Serviço alterado com sucesso..')
+            return redirect('dashboard')
     
     else:
         context = {
@@ -221,4 +224,7 @@ def editServico(request, id):
         return render(request, 'servico/editservico.html', context)
 
 def help(request):
-    return render(request,'servico/help.html')
+    
+    helps = Help.objects.all()
+
+    return render(request,'servico/help.html', {'helps': helps})
