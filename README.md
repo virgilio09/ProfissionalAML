@@ -42,6 +42,7 @@ python manage.py runserver
 |   │   ├── admin.py
 |   │   ├── apps.py
 |   │   ├── forms.py
+|   |   ├── migrations
 |   │   ├── models.py
 |   │   ├── static
 |   │   ├── templates
