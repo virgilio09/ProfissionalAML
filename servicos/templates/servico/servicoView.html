@@ -1,5 +1,8 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
+
 {% load crispy_forms_tags %}
 
 {% block title %}{{servico.nome}}{% endblock %}
@@ -32,7 +35,12 @@
                 <!-- slides -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="rounded" src="{{servico.capa.url}}" alt="{{servico.nome}}">
+                        {% if servico.capa %}
+                            <img class="rounded" src="{{servico.capa.url}}" alt="{{servico.nome}}">
+                        {% else %}
+                            <img class="rounded" src="{% static 'images/layouts/image_not.png' %}" alt="image_not">
+                        {% endif %}
+                        
                     </div>
                     {% for photo in images %}
                     <div class="carousel-item">
@@ -40,17 +48,26 @@
                     </div>
                     {% endfor %}
                 </div> <!-- Left right -->
+                {% if servico.capa != '' %}
                 <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
                 <a class="carousel-control-next" href="#custCarousel" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </a> <!-- Thumbnails -->
+                {% endif %}
                 <ol class="carousel-indicators list-inline">
                     <li class="list-inline-item active">
-                        <a id="capa-{{servico.id}}" class="selected" data-slide-to="0" data-target="#custCarousel">
-                            <img src="{{servico.capa.url}}" class="img-fluid rounded">
-                        </a>
+                        {% if servico.capa %}
+                            <a id="capa-{{servico.id}}" class="selected" data-slide-to="0" data-target="#custCarousel">
+                                <img src="{{servico.capa.url}}" class="img-fluid rounded">
+                            </a>
+                        {% else %}
+                            <a id="image_not" class="selected" data-slide-to="0" data-target="#custCarousel">
+                                <img class="rounded img-fluid" src="{% static 'images/layouts/image_not.png' %}" alt="image_not">
+                            </a>
+                        {% endif %}
+                        
                     </li>
                     {% for photo in images %}
                     <li class="list-inline-item">
@@ -88,9 +105,9 @@
                     <li>Estado:<span>{{servico.endereco.estado}}</span></li>
                     <li>Ciadade:<span>{{servico.endereco.cidade}}</span></li>
                 </ul>
-                <p><i class="fas fa-user"></i>Proprietario: </p>
+                <p><i class="fas fa-user"></i>Proprietario</p>
                 <ul>
-                    <li>Nome:<span>J</span></li>
+                    <li>Nome:<span>{{user.first_name}}</span></li>
                 </ul>
             </div>
         </div>

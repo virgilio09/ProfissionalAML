@@ -60,7 +60,9 @@ $(document).ready(function(){
         bootbox.alert({
             title: 'O que significa um serviço Ativo ou Desativado',
             message: "<p><i class='fa fa-check'></i> <strong>Ativo</strong> - Seu serviço será divulgado no site.</p>"+
-                     "<p><i class='fas fa-times'></i> <strong>Desativado</strong> - Seu serviço fica inativo, podendo ser ativado posteriomente.</p",
+                     "<p><i class='fas fa-times'></i> <strong>Desativado</strong> - Seu serviço fica inativo, podendo ser ativado posteriomente.</p"+
+                     "<br></br>"+
+                     "<p>Para mais informações, clique <a href='/help/'>aqui</a></p>",
     
             buttons: {
                 ok: {

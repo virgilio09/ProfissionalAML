@@ -7,7 +7,7 @@ Projeto desenvolvido na disciplina de programação web II
 * Ative o virtualenv.
 * Instale as dependências.
 * Rode as migrações.
-* Accesse: http://127.0.0.1:8000/
+* Acesse: http://127.0.0.1:8000/
 
 ```
 git clone https://github.com/virgilio09/ProfissionalAML.git

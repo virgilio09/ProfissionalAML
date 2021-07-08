@@ -40,7 +40,7 @@ def home(request):
     else:
         existe = False
 
-    paginator = Paginator(servicos_list, 1)
+    paginator = Paginator(servicos_list, 8)
 
     page = request.GET.get('page')
     servicos = paginator.get_page(page)
@@ -83,8 +83,12 @@ def addServico(request):
             servico.user = request.user
             
             servico.endereco_id = endereco.id
+            
+            if images != []:
+                servico.capa = images.pop(0)
+            
             servico.save()
-            servico.capa = images.pop(0)
+
             # upload das images
             for image in images:
                 image_instance = Imagem(image=image, servico=servico)
@@ -160,22 +164,27 @@ def dashboard(request):
     exite = True # caso exita algum serviço 
     status = False # active or not 
     
-    servicos = Servico.objects.all().order_by('-created_at').filter(user=request.user)
+    servicos_list = Servico.objects.all().order_by('-created_at').filter(user=request.user)
 
-    if(servicos.exists()): 
+    if(servicos_list.exists()): 
         if search:
-            servicos = Servico.objects.filter(nome__icontains=search, user=request.user)
+            servicos_list = Servico.objects.filter(nome__icontains=search, user=request.user)
 
-            if(servicos.exists()):
+            if(servicos_list.exists()):
                 achou = True
         elif filter and filter != "todos":
-            servicos = Servico.objects.filter(status=filter, user=request.user)
+            servicos_list = Servico.objects.filter(status=filter, user=request.user)
 
-            if(servicos.exists()):
+            if(servicos_list.exists()):
                 status = True
 
     else:
         exite = False
+
+    paginator = Paginator(servicos_list, 8)
+
+    page = request.GET.get('page')
+    servicos = paginator.get_page(page)
 
     context = {
         'servicos': servicos,
