@@ -21,32 +21,34 @@ python manage.py runserver
 ```
 ## Estrutura Básica do projeto
 ```
-├── accounts
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── migrations
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── manage.py
-├── profissionalAML
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── README.md
-├── requirements.txt
-├── servicos
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── static
-│   ├── templates
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── static
-└── templates
+├── ProficionlAML   
+|   ├── accounts
+|   │   ├── admin.py
+|   │   ├── apps.py
+|   │   ├── forms.py
+|   │   ├── migrations
+|   │   ├── models.py
+|   │   ├── tests.py
+|   │   ├── urls.py
+|   │   └── views.py
+|   ├── manage.py
+|   ├── profissionalAML
+|   │   ├── settings.py
+|   │   ├── urls.py
+|   │   └── wsgi.py
+|   ├── README.md
+|   ├── requirements.txt
+|   ├── servicos
+|   │   ├── admin.py
+|   │   ├── apps.py
+|   │   ├── forms.py
+|   │   ├── models.py
+|   │   ├── static
+|   │   ├── templates
+|   │   ├── tests.py
+|   │   ├── urls.py
+|   │   └── views.py
+|   ├── static
+|   └── templates
+└──    
 ```
