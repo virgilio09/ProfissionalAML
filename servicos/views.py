@@ -26,17 +26,34 @@ def home(request):
         # filter
         if nome and estado and cidade and category:
             servicos_list = Servico.objects.select_related('endereco').filter(nome__icontains=nome, endereco__estado=estado, endereco__cidade=cidade, categoria=category, status='ativo')
+            
+            cat = Categoria.objects.filter(id=category).first()
+            messages.info(request, "Filtros aplicados -> Nome: {}; Estado: {}; Cidade: {}; Categiria: {}".format(nome, estado, cidade, cat))
+            messages.info(request, "Desça a página para vizualizar o resultado!!")
 
         elif estado and cidade and category:
             servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade, categoria=category, status='ativo')
-        
+
+            cat = Categoria.objects.filter(id=category).first()
+            messages.info(request, "Filtros aplicados -> Estado: {}; Cidade: {}; Categiria: {}".format(estado, cidade, cat))
+            messages.info(request, "Desça a página para vizualizar o resultado!!")
+
         elif estado and cidade:
             servicos_list = Servico.objects.select_related('endereco').filter(endereco__estado=estado, endereco__cidade=cidade, status='ativo')
-        
+            messages.info(request, "Filtros aplicados -> Estado: {}; Cidade: {}".format(estado, cidade))
+            messages.info(request, "Desça a página para vizualizar o resultado!!")
+       
         elif nome:
+            messages.info(request, "Filtros aplicados -> Nome: {}".format(nome))
+            messages.info(request, "Desça a página para vizualizar o resultado!!")
             servicos_list = Servico.objects.filter(nome__icontains=nome, status='ativo')
+        elif category:
+            servicos_list = Servico.objects.select_related('endereco').filter(categoria=category, status='ativo')
+            
+            cat = Categoria.objects.filter(id=category).first()
+            messages.info(request, "Filtros aplicados -> Categoria: {}".format(cat))
+            messages.info(request, "Desça a página para vizualizar o resultado!!")
 
-    
     else:
         existe = False
 
@@ -120,6 +137,11 @@ def servicoView(request, id):
     qtd_comments = len(comments)
     images = Imagem.objects.filter(servico_id=id)
 
+    user = User.objects.filter(id=servico.user_id)
+    dono = ''
+    for x in user:
+        dono = x.first_name+" "+x.last_name
+
     # Commet form 
     if request.method == 'POST': 
         commentForm = CommentForm(request.POST)
@@ -141,7 +163,9 @@ def servicoView(request, id):
             'comments': comments, 
             'qtd_comments': qtd_comments, 
             'images': images,
-            'commentForm': commentForm
+            'commentForm': commentForm,
+            'servico':servico,
+            'dono': dono
         }
 
         return render(request, 'servico/servicoView.html', context)
@@ -234,14 +258,17 @@ def editServico(request, id):
 
 def help(request):
     search = request.GET.get('search_help')
-    helps = Help.objects.all()
+    list_help = Help.objects.all()
     achou = True
     
     if search:
-        helps = Help.objects.filter(titulo__icontains=search)
+        list_help = Help.objects.filter(titulo__icontains=search)
 
-        if(not(helps.exists())):
+        if(not(list_help.exists())):
             achou = False
    
-
+    paginator = Paginator(list_help, 8)
+    page = request.GET.get('page')
+    helps = paginator.get_page(page)
+    
     return render(request,'servico/help.html', {'helps': helps, 'achou': achou})

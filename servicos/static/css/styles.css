@@ -209,6 +209,9 @@ body {
 }
 
 /* ----------------------------- Home-cards-servico -------------- */
+.home-info a {
+    text-decoration: none;
+}
 .home-info{
     padding: 40px;
 }
@@ -218,7 +221,9 @@ body {
 }
 
 #servicos .card {
+    margin-top: 20px;
     text-align: center;
+   
 }
 
 #servicos .card .fa-star {
@@ -380,7 +385,7 @@ body {
 }
 
 
-/*  ------------------ detalhes serviços -------------- */
+/*  ------------------ descriçao serviços -------------- */
 .custom-title p span {
     font-size: 14px;
     color: #aaa;
@@ -401,7 +406,8 @@ body {
 
 /* ------------------- content-detalhe ----------------- */
 .content-detalhe h4 {
-    font-weight: 600;
+    font-weight: 900;
+    color: #566985;
 }
 
 .content-detalhe ul {
@@ -411,13 +417,14 @@ body {
 .content-detalhe li:before {
     content: '\2022';
     margin: 0 4px;
-    color: #4db7fe;;
+    color: #4db7fe;
 }
 
 .content-detalhe p {
     font-size: 20px;
-    font-weight: 700px;
+    font-weight: bold;
     margin: 0px;
+    color: #566985;
 }
 
 .content-detalhe p i{
@@ -429,6 +436,23 @@ body {
 .content-detalhe ul {
     margin: 5px 0px 5px 0px;
     padding: 0px 30px;
+}
+
+.content-detalhe span {
+    margin-left: 5px;
+    font-weight: 550;
+}
+.content-detalhe li{
+    font-size: 17px; 
+    font-weight: 600;
+}
+
+#comple{
+    text-align: justify;
+    font-size: 17px; 
+    color: #212529;
+    font-weight: 550;
+    margin-left: 30px;
 }
 
 
@@ -689,8 +713,8 @@ body {
 }
 
 .dashboard table a{
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .fa-times {
@@ -715,15 +739,15 @@ body {
     margin-left:14px;
 }
 
-.fas.fa-trash {
+.dashboard .fa-trash-alt {
     color: #EF651B;
     display:flex;
     margin-left:26px;
 
 }
 
-.fa-times, .fa-check, .fas.fa-edit, .fas.fa-trash {
-    font-size: 18px;
+.dashboard .fa-times, .fa-check, .fas.fa-edit, .fa-trash-alt {
+    font-size: 16px;
     
 }
 

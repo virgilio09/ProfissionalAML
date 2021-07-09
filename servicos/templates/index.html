@@ -7,6 +7,15 @@
 
 {% block content %}
 <div id="demo">
+    <div class="row">
+        <div class="col">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-auto text-center rounded">
             <h1>Busque por um serviço:</h1>
@@ -79,7 +88,7 @@
         <div class="col">
             <div class="custom-title">
                 <h2>Seviços</h2>
-                <span class="section-separator mb-5"></span>
+                <span class="section-separator"></span>
             </div>
         </div>
     </div>
@@ -92,7 +101,7 @@
                             {% if servico.capa %}
                                 <img class="img-fluid" src="{{servico.capa.url}}" alt="{{servico.nome}}">
                             {% else %}
-                                <img class="img-fluid" src="{% static 'images/layouts/image_not.png' %}" alt="image_not">
+                                <img class="img-fluid"src="{% static 'images/layouts/image_not.png' %}" alt="image_not">
                             {% endif %}
                         </div>
                         <div class="card-body">

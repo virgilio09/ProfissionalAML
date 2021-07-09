@@ -17,14 +17,12 @@ $(document).ready(function(){
     var baseUrl   = 'http://127.0.0.1:8000/dashboard/'; 
     var searchBtn = $('#search-btn');
     var searchForm = $('#search-form');
-    var rmBtn = $('.rm-btn')
-    var filter     = $('#filter');
     
     $(searchBtn).on('click', function() {
         searchForm.submit();
     });
 
-    $(rmBtn).on('click', function(e) {
+    $('.rm-servico').on('click', function(e) {
 
         e.preventDefault();
 
@@ -51,7 +49,36 @@ $(document).ready(function(){
 
     });
 
-    $(filter).change(function() {
+
+    $('#rm-user').on('click', function(e) {
+
+        e.preventDefault();
+
+        var delLink = $(this).attr('href');
+        
+        bootbox.confirm({
+            message: "<p>Você realmente deseja apagar sua conta?</p>"+
+                     "<p>Seus dados seram apagados de forma permanente</p>",
+            buttons: {
+                confirm: {
+                    label: 'Sim',
+                    className: 'btn'
+                },
+                cancel: {
+                    label: 'Cancelar',
+                    className: 'btn'
+                }
+            },
+            callback: function (result) {
+                if(result) {
+                    window.location.href = delLink;
+                }
+            }
+        });
+
+    });
+
+    $('#filter').change(function() {
         var filter = $(this).val();
         window.location.href = baseUrl + '?filter=' + filter;
     });

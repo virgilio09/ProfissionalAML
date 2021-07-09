@@ -117,7 +117,7 @@
                                     <td ><a href="{% url 'servico-view' servico.id %}">{{servico.nome}}</a></td>
                                     <td>{{servico.created_at|date:"d/M/Y"}}</td>
                                     <td><a href="{% url 'edit-servico' servico.id %}"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="{% url 'rm-servico' servico.id %}" class="rm-btn"><i class="fas fa-trash"></i></a></td>
+                                    <td><a href="{% url 'rm-servico' servico.id %}" class="rm-servico"><i class="fas fa-trash-alt"></i></a></td>
                                     {% if servico.status == 'ativo' %}
                                         <td><i class="fa fa-check"></i></td>
                                     {% else %}

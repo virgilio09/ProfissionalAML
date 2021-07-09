@@ -84,22 +84,22 @@
                 <h4>Detalhes</h4>
                 <p><i class="fas fa-phone"></i>Contatos</p>
                 <ul>
-                    {% if servico.nrTelCelular and servico.nrTelFixo %}
-                    <li>Telefone celular:<span>{{servico.nrTelCelular}}</span></li>
-                    <li>Telefone fixo:<span>{{servico.nrTelFixo}}</span></li>
                     <li>Email:<span>{{servico.email}}</span></li>
+                    {% if servico.telefone01 and servico.telefone02 %}
+                        <li>Telefone 01:<span>{{servico.telefone01}}</span></li>
+                        <li>Telefone 02:<span>{{servico.telefone02}}</span></li>
+                    {% elif servico.telefone01 %}
+                        <li>Telefone 01:<span>{{servico.telefone01}}</span></li>
                     {% else %}
-                    <li>Telefone celular:<span>{{servico.nrTelCelular}}</span></li>
-                    <li>Email:<span>{{servico.email}}</span></li>
+                        <li>Telefone 02:<span>{{servico.telefone02}}</span></li>
                     {% endif %}
-
                 </ul>
                 <p><i class="fas fa-map-marker-alt"></i>Localização</p>
                 <ul>
                     <li>Rua:<span>{{servico.endereco.rua}}</span></li>
                     <li>Numero:<span>{{servico.endereco.numero}}</span></li>
                     {% if servico.endereco.complemento %}
-                    <li>Complemento:<span>{{servico.endereco.complemento}}</span></li>
+                        <li>Complemento:<span><p id="comple">{{servico.endereco.complemento}}</p></span></li>
                     {% endif %}
                     <li>Bairro:<span>{{servico.endereco.bairro}}</span></li>
                     <li>Estado:<span>{{servico.endereco.estado}}</span></li>
@@ -107,7 +107,7 @@
                 </ul>
                 <p><i class="fas fa-user"></i>Proprietario</p>
                 <ul>
-                    <li>Nome:<span>{{user.first_name}}</span></li>
+                    <li>Nome:<span>{{dono}}</span></li>
                 </ul>
             </div>
         </div>
